@@ -203,6 +203,9 @@ Object.assign(translations.en, {preferredMode: "How to attend *"});
 Object.assign(translations.ru, {formNote: "Заявка будет безопасно передана владельцу через Telegram.", success: "Заявка отправлена. Владелец свяжется с вами.", sending: "Отправляем…", sendError: "Не удалось отправить заявку. Проверьте связь и попробуйте ещё раз.", retrySubmit: "Повторить отправку"});
 Object.assign(translations.hy, {formNote: "Հայտը անվտանգ կփոխանցվի սեփականատիրոջը Telegram-ի միջոցով։", success: "Հայտն ուղարկվել է։ Սեփականատերը կկապվի ձեզ հետ։", sending: "Ուղարկում ենք…", sendError: "Չհաջողվեց ուղարկել հայտը։ Ստուգեք կապը և փորձեք կրկին։", retrySubmit: "Վերաուղարկել"});
 Object.assign(translations.en, {formNote: "Your request will be securely delivered to the owner through Telegram.", success: "Request sent. The owner will contact you.", sending: "Sending…", sendError: "We could not send your request. Check your connection and try again.", retrySubmit: "Try sending again"});
+Object.assign(translations.ru, {configurationMissing: "Отправка пока не настроена. Проверьте настройки Telegram.", invalidBotToken: "Telegram не принял токен бота. Нужно обновить токен.", chatNotFound: "Telegram не нашёл чат владельца. Проверьте Chat ID и нажмите Start в боте.", botUnavailable: "Бот не может отправить сообщение. Откройте бота и нажмите Start.", telegramUnavailable: "Telegram временно недоступен. Попробуйте отправить заявку ещё раз."});
+Object.assign(translations.hy, {configurationMissing: "Ուղարկումը դեռ կարգավորված չէ։ Ստուգեք Telegram-ի կարգավորումները։", invalidBotToken: "Telegram-ը չի ընդունել բոտի տոկենը։ Անհրաժեշտ է թարմացնել տոկենը։", chatNotFound: "Telegram-ը չի գտել սեփականատիրոջ չատը։ Ստուգեք Chat ID-ն և բոտում սեղմեք Start։", botUnavailable: "Բոտը չի կարող հաղորդագրություն ուղարկել։ Բացեք բոտը և սեղմեք Start։", telegramUnavailable: "Telegram-ը ժամանակավորապես անհասանելի է։ Փորձեք կրկին։"});
+Object.assign(translations.en, {configurationMissing: "Delivery is not configured yet. Check the Telegram settings.", invalidBotToken: "Telegram did not accept the bot token. The token needs to be updated.", chatNotFound: "Telegram could not find the owner's chat. Check the Chat ID and press Start in the bot.", botUnavailable: "The bot cannot send a message. Open the bot and press Start.", telegramUnavailable: "Telegram is temporarily unavailable. Please try again."});
 
 let currentLanguage = 'ru';
 const form = document.querySelector('#trial-form');
@@ -356,7 +359,11 @@ if (form && status && submitButton) {
         body: JSON.stringify(payload),
       });
       const result = await response.json().catch(() => ({}));
-      if (!response.ok || result.ok !== true) throw new Error('Delivery failed');
+      if (!response.ok || result.ok !== true) {
+        const deliveryError = new Error('Delivery failed');
+        deliveryError.code = result.code;
+        throw deliveryError;
+      }
 
       form.reset();
       if (modeFieldset) {
@@ -365,8 +372,16 @@ if (form && status && submitButton) {
       }
       modeInputs.forEach((input) => { input.disabled = true; });
       showStatus(translations[currentLanguage].success, 'success');
-    } catch {
-      showStatus(translations[currentLanguage].sendError, 'error');
+    } catch (error) {
+      const messageKeyByCode = {
+        configuration_missing: 'configurationMissing',
+        invalid_bot_token: 'invalidBotToken',
+        chat_not_found: 'chatNotFound',
+        bot_unavailable: 'botUnavailable',
+        telegram_unavailable: 'telegramUnavailable',
+      };
+      const messageKey = messageKeyByCode[error.code] || 'sendError';
+      showStatus(translations[currentLanguage][messageKey], 'error');
       if (retryButton) retryButton.hidden = false;
     } finally {
       setSubmitting(false);
