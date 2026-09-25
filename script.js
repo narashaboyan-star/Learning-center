@@ -200,10 +200,16 @@ Object.assign(translations.hy, {heroCta: "Գրանցվել անվճար 90 րո�
 Object.assign(translations.en, {heroCta: "Book a free 90-minute lesson", step1Text: "90 minutes to meet your child, talk with you and observe how your child approaches tasks.", trialText: "The trial lesson lasts 90 minutes. The teacher gets to know your child, understands their difficulties and suggests a suitable format for future lessons.", trialPoint2: "✓ 90 minutes", lessonTypeLabel: "Lesson type", deliveryTypeLabel: "How to attend", formatStep1: "Choose the lesson type", formatStep2: "Now choose how to attend", chooseThis: "Choose →", modeAppearsHint: "Choose online or in person", quickContactCaption: "Contact us"});
 Object.assign(translations.hy, {preferredMode: "Մասնակցության ձևը *"});
 Object.assign(translations.en, {preferredMode: "How to attend *"});
+Object.assign(translations.ru, {formNote: "Заявка будет безопасно передана владельцу через Telegram.", success: "Заявка отправлена. Владелец свяжется с вами.", sending: "Отправляем…", sendError: "Не удалось отправить заявку. Проверьте связь и попробуйте ещё раз.", retrySubmit: "Повторить отправку"});
+Object.assign(translations.hy, {formNote: "Հայտը անվտանգ կփոխանցվի սեփականատիրոջը Telegram-ի միջոցով։", success: "Հայտն ուղարկվել է։ Սեփականատերը կկապվի ձեզ հետ։", sending: "Ուղարկում ենք…", sendError: "Չհաջողվեց ուղարկել հայտը։ Ստուգեք կապը և փորձեք կրկին։", retrySubmit: "Վերաուղարկել"});
+Object.assign(translations.en, {formNote: "Your request will be securely delivered to the owner through Telegram.", success: "Request sent. The owner will contact you.", sending: "Sending…", sendError: "We could not send your request. Check your connection and try again.", retrySubmit: "Try sending again"});
 
 let currentLanguage = 'ru';
 const form = document.querySelector('#trial-form');
 const status = document.querySelector('#form-status');
+const submitButton = form?.querySelector('.submit-button');
+const retryButton = document.querySelector('#form-retry');
+let isSubmitting = false;
 
 const formatPrice = document.querySelector('#format-price');
 const formatChips = document.querySelectorAll('.format-chip');
@@ -314,17 +320,60 @@ document.querySelectorAll('.lang-button').forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.lang));
 });
 
-if (form && status) {
-  form.addEventListener('submit', (event) => {
+if (form && status && submitButton) {
+  const setSubmitting = (submitting) => {
+    isSubmitting = submitting;
+    submitButton.disabled = submitting;
+    submitButton.setAttribute('aria-busy', String(submitting));
+    submitButton.textContent = translations[currentLanguage][submitting ? 'sending' : 'submit'];
+    if (submitting && retryButton) retryButton.hidden = true;
+  };
+
+  const showStatus = (message, type) => {
+    status.textContent = message;
+    status.classList.remove('is-success', 'is-error');
+    status.classList.add('is-visible', type === 'error' ? 'is-error' : 'is-success');
+  };
+
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (isSubmitting) return;
     if (!form.checkValidity()) {
       form.reportValidity();
-      status.classList.remove('is-visible');
+      status.classList.remove('is-visible', 'is-success', 'is-error');
       return;
     }
-    status.textContent = translations[currentLanguage].success;
-    status.classList.add('is-visible');
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload.language = currentLanguage;
+    setSubmitting(true);
+
+    try {
+      const response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.ok !== true) throw new Error('Delivery failed');
+
+      form.reset();
+      if (modeFieldset) {
+        modeFieldset.hidden = true;
+        modeFieldset.disabled = true;
+      }
+      modeInputs.forEach((input) => { input.disabled = true; });
+      showStatus(translations[currentLanguage].success, 'success');
+    } catch {
+      showStatus(translations[currentLanguage].sendError, 'error');
+      if (retryButton) retryButton.hidden = false;
+    } finally {
+      setSubmitting(false);
+    }
   });
+
+  retryButton?.addEventListener('click', () => form.requestSubmit());
 }
 
 const requestedLanguage = new URLSearchParams(window.location.search).get('lang');

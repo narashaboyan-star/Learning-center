@@ -801,6 +801,12 @@ h3 {
   font-size: 16px;
 }
 
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
 .form-note {
   margin: 0;
   color: var(--muted);
@@ -819,6 +825,33 @@ h3 {
 
 .form-status.is-visible {
   display: block;
+}
+
+.form-status.is-error {
+  background: #fff0ec;
+  color: #8b3428;
+}
+
+.form-retry {
+  justify-self: start;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  background: white;
+  color: var(--primary-dark);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.form-retry:hover,
+.form-retry:focus-visible {
+  background: #edf2df;
+}
+
+.form-retry[hidden] {
+  display: none;
 }
 
 .site-footer {
