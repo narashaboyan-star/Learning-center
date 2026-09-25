@@ -188,8 +188,9 @@
           <fieldset class="mode-fieldset" id="mode-fieldset" hidden disabled><legend data-i18n="preferredMode">Способ участия *</legend><p class="field-help" data-i18n="modeAppearsHint">Выберите онлайн или офлайн</p><div class="radio-row"><label class="radio-card radio-card-rich"><input type="radio" name="mode" value="online" required disabled><span><b aria-hidden="true">💻</b><span data-i18n="formatOnline">Онлайн</span></span></label><label class="radio-card radio-card-rich"><input type="radio" name="mode" value="offline" disabled><span><b aria-hidden="true">🏡</b><span data-i18n="formatOffline">Офлайн</span></span></label></div></fieldset>
           <label><span data-i18n="helpField">С чем ребёнку сейчас нужна помощь?</span><textarea name="helpNeeded" rows="4" data-i18n-placeholder="helpPlaceholder" placeholder="Например: не понимает математику или не успевает с домашними заданиями"></textarea></label>
           <button class="submit-button" type="submit" data-i18n="submit">Отправить заявку</button>
-          <p class="form-note" data-i18n="formNote">Сейчас форма работает как прототип: проверяет заполнение, но ещё не отправляет данные во внешнюю систему. Канал отправки нужно отдельно выбрать.</p>
+          <p class="form-note" data-i18n="formNote">Заявка будет безопасно передана владельцу через Telegram.</p>
           <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          <button class="form-retry" id="form-retry" type="button" hidden data-i18n="retrySubmit">Повторить отправку</button>
         </form>
       </div>
     </section>
@@ -220,6 +221,6 @@
       <div class="footer-contact"><strong data-i18n="footerAddressTitle">Адрес</strong><p data-i18n="address">Армения, село Овташен, улица Камо 6, дом 6.</p></div>
     </div>
   </footer>
-  <script src="script.js?v=20260918"></script>
+  <script src="script.js?v=20260925-2"></script>
 </body>
 </html>
