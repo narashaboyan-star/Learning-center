@@ -23,7 +23,7 @@ const translations = {
     "heroEyebrow": "For students in grades 1–6",
     "heroTitle": "Helping children learn with interest and confidence",
     "heroDescription": "We explain school topics, help with homework and build important skills through a personal approach and educational games.",
-    "heroCta": "Book a free 40-minute lesson",
+    "heroCta": "Book a free 90-minute lesson",
     "heroNote": "After getting to know your child, Anushik Kostanyan will suggest a suitable lesson format and learning plan.",
     "heroVisualTitle": "Real lessons, materials and educational games",
     "heroVisualNote": "A real photo from a lesson will appear here.",
@@ -51,7 +51,7 @@ const translations = {
     "approachIntro": "Parents do not need to choose a programme in advance. The teacher gets to know your child, identifies strengths and areas needing support, then plans the next steps.",
     "approachLink": "Book an introductory lesson →",
     "step1Title": "Free trial lesson",
-    "step1Text": "40 minutes to meet your child, talk with you and observe how your child approaches tasks.",
+    "step1Text": "90 minutes to meet your child, talk with you and observe how your child approaches tasks.",
     "step2Title": "Identifying where support is needed",
     "step2Text": "The teacher identifies which school subjects, tasks or skills to focus on.",
     "step3Title": "Learning and practising",
@@ -91,9 +91,9 @@ const translations = {
     "priceNote": "The final fee will be added once confirmed.",
     "trialEyebrow": "The first step",
     "trialTitle": "Book a free trial lesson for your child",
-    "trialText": "The trial lesson lasts 40 minutes. The teacher gets to know your child, understands their difficulties and then suggests a suitable format for future lessons.",
+    "trialText": "The trial lesson lasts 90 minutes. The teacher gets to know your child, understands their difficulties and then suggests a suitable format for future lessons.",
     "trialPoint1": "✓ Free",
-    "trialPoint2": "✓ 40 minutes",
+    "trialPoint2": "✓ 90 minutes",
     "trialPoint3": "✓ Grades 1–6",
     "trialPoint4": "✓ Online or in person",
     "phoneTitle": "You can also contact us directly",
@@ -140,7 +140,7 @@ const translations = {
     gallery3Text: "Закрепляем школьные темы с помощью заданий и упражнений.",
     gallery4Text: "Здесь можно будет посмотреть короткий фрагмент занятия.",
     navHelp: 'Кому помогаем', navApproach: 'Как проходят занятия', navTeacher: 'Преподаватель', navReviews: 'Отзывы', headerCta: 'Пробное занятие',
-    heroEyebrow: 'Для школьников 1–6 классов', heroTitle: 'Помогаем ребёнку учиться с интересом и уверенностью', heroDescription: 'Разбираем школьный материал, помогаем с домашними заданиями и развиваем важные навыки через индивидуальный подход и развивающие игры.', heroCta: 'Записаться бесплатно на 40 минут', heroNote: 'После знакомства Анушик Костанян подберёт подходящий формат и план работы для ребёнка.', heroVisualTitle: 'Реальные занятия, материалы и развивающие игры', heroVisualNote: 'Здесь будет реальная фотография с занятия.', gradeBadge: '1–6 класс', modeBadge: 'Онлайн + офлайн',
+    heroEyebrow: 'Для школьников 1–6 классов', heroTitle: 'Помогаем ребёнку учиться с интересом и уверенностью', heroDescription: 'Разбираем школьный материал, помогаем с домашними заданиями и развиваем важные навыки через индивидуальный подход и развивающие игры.', heroCta: 'Записаться бесплатно на 90 минут', heroNote: 'После знакомства Анушик Костанян подберёт подходящий формат и план работы для ребёнка.', heroVisualTitle: 'Реальные занятия, материалы и развивающие игры', heroVisualNote: 'Здесь будет реальная фотография с занятия.', gradeBadge: '1–6 класс', modeBadge: 'Онлайн + офлайн',
     formatIndividual: 'Индивидуально', formatGroup: 'В группе', formatOnline: 'Онлайн', formatOffline: 'Офлайн', selectedFormatPriceLabel: 'Ориентировочная стоимость', selectedFormatPriceNote: 'Финальную стоимость уточним после пробного занятия.',
     helpEyebrow: 'С чем мы помогаем', helpTitle: 'Когда ребёнку нужна дополнительная поддержка', helpIntro: 'Учитель помогает понять, где именно ребёнку сложно, и выстраивает занятия под его текущие учебные потребности.', help1Title: 'Не успевает с домашними заданиями', help1Text: 'Помогаем спокойно разобрать задания и понять последовательность действий.', help2Title: 'Хочется увереннее разбираться в школьных темах', help2Text: 'Разбираем материал в удобном темпе, объясняем понятным языком и закрепляем на примерах.', help3Title: 'Трудно ясно выражать мысли', help3Text: 'Во время занятий развиваем грамотную речь, понимание заданий и уверенное выражение мыслей в рамках учебной работы.', help4Title: 'Нужно больше внимания и практики', help4Text: 'Чередуем учебные задачи с упражнениями и развивающими играми, чтобы ребёнку было легче включаться в процесс.',
     approachEyebrow: 'Как проходят занятия', approachTitle: 'Сначала знакомство, потом подход', approachIntro: 'Родителю не нужно заранее выбирать программу. Учитель знакомится с ребёнком, смотрит, что даётся легко, а где нужна помощь, и после этого определяет дальнейшую работу.', approachLink: 'Записаться на знакомство →', step1Title: 'Бесплатное пробное занятие', step1Text: '40 минут: знакомство, разговор с родителем и наблюдение за тем, как ребёнок выполняет задания.', step2Title: 'Определяем, где нужна помощь', step2Text: 'Учитель понимает, на каких школьных предметах, заданиях или навыках стоит сосредоточиться.', step3Title: 'Учимся и закрепляем', step3Text: 'Используем школьные материалы, упражнения и развивающие игры. Подход меняется по мере прогресса ребёнка.',
@@ -195,6 +195,12 @@ Object.assign(translations.ru, {reviewsTitle: "Отзывы родителей �
 Object.assign(translations.hy, {reviewsTitle: "Ծնողների կարծիքները դասերի մասին", reviewsIntro: "Ստորև ներկայացված են ձևավորման ժամանակավոր օրինակներ։ Հետագայում դրանք կարող եք փոխարինել ծնողների իրական կարծիքներով։", review1: "Կարծիքի օրինակ", review2: "Կարծիքի օրինակ", review3: "Կարծիքի օրինակ", review1Text: "Երեխան սկսել է ավելի վստահ կատարել առաջադրանքները և մեծ հետաքրքրությամբ պատմել դասերի մասին։", review2Text: "Նյութը բացատրվում է հանգիստ և հասկանալի։ Տնային առաջադրանքներն այլևս նախկին լարվածությունը չեն առաջացնում։", review3Text: "Մեզ դուր է գալիս երեխայի հանդեպ ուշադիր վերաբերմունքը և ուսուցման համադրումը զարգացնող խաղերի հետ։", sampleReviewNote: "Ժամանակավոր տեքստ · փոխարինեք իրական կարծիքով"});
 Object.assign(translations.en, {reviewsTitle: "What parents say about the lessons", reviewsIntro: "These are temporary layout examples. You can replace them with genuine parent reviews later.", review1: "Sample review", review2: "Sample review", review3: "Sample review", review1Text: "My child feels more confident with assignments and talks about the lessons with real interest.", review2Text: "Topics are explained calmly and clearly. Homework no longer causes the same tension.", review3Text: "We appreciate the thoughtful approach and the way learning is combined with educational games.", sampleReviewNote: "Temporary text · replace with a genuine review"});
 
+Object.assign(translations.ru, {heroCta: "Записаться бесплатно на 90 минут", step1Text: "90 минут: знакомство, разговор с родителем и наблюдение за тем, как ребёнок выполняет задания.", trialText: "Пробное занятие длится 90 минут. Учитель знакомится с ребёнком, понимает его трудности и после этого предлагает дальнейший формат работы.", trialPoint2: "✓ 90 минут", lessonTypeLabel: "Тип занятия", preferredMode: "Способ участия *", deliveryTypeLabel: "Способ участия", formatStep1: "Выберите тип занятия", formatStep2: "Теперь выберите способ участия", chooseThis: "Выбрать →", modeAppearsHint: "Выберите онлайн или офлайн", quickContactCaption: "Связаться"});
+Object.assign(translations.hy, {heroCta: "Գրանցվել անվճար 90 րոպեանոց դասին", step1Text: "90 րոպե՝ ծանոթացում, զրույց ծնողի հետ և դիտարկում, թե ինչպես է երեխան կատարում առաջադրանքները։", trialText: "Փորձնական դասը տևում է 90 րոպե։ Դասավանդողը ծանոթանում է երեխայի հետ, հասկանում նրա դժվարությունները և առաջարկում աշխատանքի հետագա ձևաչափը։", trialPoint2: "✓ 90 րոպե", lessonTypeLabel: "Դասի տեսակը", deliveryTypeLabel: "Մասնակցության ձևը", formatStep1: "Ընտրեք դասի տեսակը", formatStep2: "Այժմ ընտրեք մասնակցության ձևը", chooseThis: "Ընտրել →", modeAppearsHint: "Ընտրեք առցանց կամ առկա", quickContactCaption: "Կապվել"});
+Object.assign(translations.en, {heroCta: "Book a free 90-minute lesson", step1Text: "90 minutes to meet your child, talk with you and observe how your child approaches tasks.", trialText: "The trial lesson lasts 90 minutes. The teacher gets to know your child, understands their difficulties and suggests a suitable format for future lessons.", trialPoint2: "✓ 90 minutes", lessonTypeLabel: "Lesson type", deliveryTypeLabel: "How to attend", formatStep1: "Choose the lesson type", formatStep2: "Now choose how to attend", chooseThis: "Choose →", modeAppearsHint: "Choose online or in person", quickContactCaption: "Contact us"});
+Object.assign(translations.hy, {preferredMode: "Մասնակցության ձևը *"});
+Object.assign(translations.en, {preferredMode: "How to attend *"});
+
 let currentLanguage = 'ru';
 const form = document.querySelector('#trial-form');
 const status = document.querySelector('#form-status');
@@ -204,12 +210,48 @@ const formatChips = document.querySelectorAll('.format-chip');
 const quickContact = document.querySelector('.quick-contact');
 const quickContactButton = document.querySelector('.quick-contact-button');
 const quickContactMenu = document.querySelector('#quick-contact-menu');
+const formatTypeChoices = document.querySelectorAll('[data-lesson-type].format-choice');
+const deliveryChoices = document.querySelectorAll('[data-delivery].format-choice');
+const formatFollowup = document.querySelector('#format-followup');
+const lessonTypeInputs = document.querySelectorAll('input[name="lessonType"]');
+const modeFieldset = document.querySelector('#mode-fieldset');
+const modeInputs = document.querySelectorAll('input[name="mode"]');
 
 formatChips.forEach((button) => {
   button.addEventListener('click', () => {
     formatChips.forEach((chip) => chip.classList.remove('is-selected'));
     button.classList.add('is-selected');
     if (formatPrice) formatPrice.hidden = false;
+  });
+});
+
+formatTypeChoices.forEach((button) => {
+  button.addEventListener('click', () => {
+    formatTypeChoices.forEach((choice) => {
+      const selected = choice === button;
+      choice.classList.toggle('is-selected', selected);
+      choice.setAttribute('aria-pressed', String(selected));
+    });
+    if (formatFollowup) formatFollowup.hidden = false;
+  });
+});
+
+deliveryChoices.forEach((button) => {
+  button.addEventListener('click', () => {
+    deliveryChoices.forEach((choice) => {
+      const selected = choice === button;
+      choice.classList.toggle('is-selected', selected);
+      choice.setAttribute('aria-pressed', String(selected));
+    });
+  });
+});
+
+lessonTypeInputs.forEach((input) => {
+  input.addEventListener('change', () => {
+    if (!modeFieldset) return;
+    modeFieldset.hidden = false;
+    modeFieldset.disabled = false;
+    modeInputs.forEach((modeInput) => { modeInput.disabled = false; });
   });
 });
 
