@@ -80,6 +80,10 @@ module.exports = async function handler(request, response) {
     return response.status(400).json({ ok: false, error: 'Required fields are missing' });
   }
 
+  if (!/^0\d{8}$/.test(data.phone)) {
+    return response.status(400).json({ ok: false, code: 'invalid_phone', error: 'A valid Armenian phone number is required' });
+  }
+
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
