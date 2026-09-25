@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kostanyan Learning Center — учебная поддержка и развивающие занятия для школьников 1–6 классов.">
   <title>Kostanyan Learning Center</title>
-  <link rel="stylesheet" href="styles.css?v=20260918">
+  <link rel="stylesheet" href="styles.css?v=20260925-1">
 </head>
 <body>
   <header class="site-header">
@@ -35,7 +35,10 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="heroEyebrow">Для школьников 1–6 классов</p>
+          <div class="hero-kicker">
+            <p class="eyebrow" data-i18n="heroEyebrow">Для школьников 1–6 классов</p>
+            <span class="hero-mini-sticker" aria-hidden="true"><img src="assets/pencils.jpg" alt=""></span>
+          </div>
           <h1 id="hero-title" data-i18n="heroTitle">Помогаем ребёнку учиться с интересом и уверенностью</h1>
           <p class="hero-description" data-i18n="heroDescription">Разбираем школьный материал, помогаем с домашними заданиями и развиваем важные навыки через индивидуальный подход и развивающие игры.</p>
           <div class="format-list" aria-label="Форматы занятий" data-i18n-aria-label="formatsLabel">
@@ -49,19 +52,21 @@
             <strong>25 000 ֏</strong>
             <small data-i18n="selectedFormatPriceNote">Финальную стоимость уточним после пробного занятия.</small>
           </div>
-          <a class="primary-cta" href="#trial" data-i18n="heroCta">Записаться бесплатно на 40 минут</a>
+          <a class="primary-cta" href="#trial" data-i18n="heroCta">Записаться бесплатно на 90 минут</a>
         <a class="text-link gallery-link" href="gallery.html" data-page-link data-i18n="galleryLink">Посмотреть, как проходят занятия →</a>
           <p class="hero-note" data-i18n="heroNote">После знакомства Анушик Костанян подберёт подходящий формат и план работы для ребёнка.</p>
+          <p class="hero-handwritten" data-i18n="heroHandwritten">В каждом ребёнке — большие возможности!</p>
         </div>
 
-        <div class="hero-visual" aria-label="Место для реальной фотографии с занятия" data-i18n-aria-label="heroPhotoLabel">
+        <div class="hero-visual" aria-label="Счастливая школьница за учебным столом" data-i18n-aria-label="heroPhotoLabel">
           <div class="visual-card visual-card-main photo-hero">
-            <img src="assets/classroom.jpg" alt="Дети выполняют задания за жёлтым столом с преподавателем" data-i18n-alt="altClassroom" fetchpriority="high" decoding="async">
+            <img src="assets/happy-schoolgirl-hero.png" alt="Счастливая школьница занимается за столом" data-i18n-alt="altHeroGirl" fetchpriority="high" decoding="async">
             <p data-i18n="heroVisualTitle">Реальные занятия, материалы и развивающие игры</p>
-            <small data-i18n="photoNote">Иллюстративные фото · Pexels</small>
+            <small data-i18n="heroImageNote">Эмоциональный визуал · создан для сайта</small>
           </div>
           <div class="visual-card visual-card-small visual-card-top" aria-hidden="true" data-i18n="gradeBadge">1–6 класс</div>
           <div class="visual-card visual-card-small visual-card-bottom" aria-hidden="true" data-i18n="modeBadge">Онлайн + офлайн</div>
+          <span class="hero-sparkles" aria-hidden="true">✦</span>
         </div>
       </div>
     </section>
@@ -74,10 +79,10 @@
           <p data-i18n="helpIntro">Учитель помогает понять, где именно ребёнку сложно, и выстраивает занятия под его текущие учебные потребности.</p>
         </div>
         <div class="cards-grid help-grid">
-          <article class="info-card"><span class="card-icon">01</span><h3 data-i18n="help1Title">Не успевает с домашними заданиями</h3><p data-i18n="help1Text">Помогаем спокойно разобрать задания и понять последовательность действий.</p></article>
-          <article class="info-card"><span class="card-icon">02</span><h3 data-i18n="help2Title">Хочется увереннее разбираться в школьных темах</h3><p data-i18n="help2Text">Разбираем материал в удобном темпе, объясняем понятным языком и закрепляем на примерах.</p></article>
-          <article class="info-card"><span class="card-icon">03</span><h3 data-i18n="help3Title">Трудно ясно выражать мысли</h3><p data-i18n="help3Text">Во время занятий развиваем грамотную речь, понимание заданий и уверенное выражение мыслей в рамках учебной работы.</p></article>
-          <article class="info-card"><span class="card-icon">04</span><h3 data-i18n="help4Title">Нужно больше внимания и практики</h3><p data-i18n="help4Text">Чередуем учебные задачи с упражнениями и развивающими играми, чтобы ребёнку было легче включаться в процесс.</p></article>
+          <article class="info-card"><div class="card-topline"><span class="card-icon">01</span><span class="card-emoji" aria-hidden="true">📝</span></div><h3 data-i18n="help1Title">Не успевает с домашними заданиями</h3><p data-i18n="help1Text">Помогаем спокойно разобрать задания и понять последовательность действий.</p></article>
+          <article class="info-card"><div class="card-topline"><span class="card-icon">02</span><span class="card-emoji" aria-hidden="true">💡</span></div><h3 data-i18n="help2Title">Хочется увереннее разбираться в школьных темах</h3><p data-i18n="help2Text">Разбираем материал в удобном темпе, объясняем понятным языком и закрепляем на примерах.</p></article>
+          <article class="info-card"><div class="card-topline"><span class="card-icon">03</span><span class="card-emoji" aria-hidden="true">💬</span></div><h3 data-i18n="help3Title">Трудно ясно выражать мысли</h3><p data-i18n="help3Text">Во время занятий развиваем грамотную речь, понимание заданий и уверенное выражение мыслей в рамках учебной работы.</p></article>
+          <article class="info-card"><div class="card-topline"><span class="card-icon">04</span><span class="card-emoji" aria-hidden="true">🎯</span></div><h3 data-i18n="help4Title">Нужно больше внимания и практики</h3><p data-i18n="help4Text">Чередуем учебные задачи с упражнениями и развивающими играми, чтобы ребёнку было легче включаться в процесс.</p></article>
         </div>
       </div>
     </section>
@@ -91,7 +96,7 @@
           <a class="text-link" href="#trial" data-i18n="approachLink">Записаться на знакомство →</a>
         </div>
         <div class="steps-list">
-          <article class="step-card"><span>1</span><div><h3 data-i18n="step1Title">Бесплатное пробное занятие</h3><p data-i18n="step1Text">40 минут: знакомство, разговор с родителем и наблюдение за тем, как ребёнок выполняет задания.</p></div></article>
+          <article class="step-card"><span>1</span><div><h3 data-i18n="step1Title">Бесплатное пробное занятие</h3><p data-i18n="step1Text">90 минут: знакомство, разговор с родителем и наблюдение за тем, как ребёнок выполняет задания.</p></div></article>
           <article class="step-card"><span>2</span><div><h3 data-i18n="step2Title">Определяем, где нужна помощь</h3><p data-i18n="step2Text">Учитель понимает, на каких школьных предметах, заданиях или навыках стоит сосредоточиться.</p></div></article>
           <article class="step-card"><span>3</span><div><h3 data-i18n="step3Title">Учимся и закрепляем</h3><p data-i18n="step3Text">Используем школьные материалы, упражнения и развивающие игры. Подход меняется по мере прогресса ребёнка.</p></div></article>
         </div>
@@ -101,11 +106,17 @@
     <section class="section" aria-labelledby="formats-title">
       <div class="container">
         <div class="section-heading center-heading"><p class="eyebrow" data-i18n="formatsEyebrow">Форматы</p><h2 id="formats-title" data-i18n="formatsTitle">Подбираем удобный формат для семьи и ребёнка</h2></div>
-        <div class="format-grid">
-          <article class="format-card"><span class="format-symbol">●</span><h3 data-i18n="formatIndividual">Индивидуально</h3><p data-i18n="formatIndividualText">Всё внимание преподавателя направлено на одного ребёнка.</p></article>
-          <article class="format-card"><span class="format-symbol">●●</span><h3 data-i18n="formatGroup">В группе</h3><p data-i18n="formatGroupText">Занятия вместе с другими детьми, если в подходящей группе есть место.</p></article>
-          <article class="format-card"><span class="format-symbol">⌂</span><h3 data-i18n="formatOffline">Офлайн</h3><p data-i18n="formatOfflineText">Очные занятия по адресу центра в селе Овташен.</p></article>
-          <article class="format-card"><span class="format-symbol">▣</span><h3 data-i18n="formatOnline">Онлайн</h3><p data-i18n="formatOnlineText">Дистанционные занятия для семей, которым удобнее заниматься из дома.</p></article>
+        <p class="format-step-label"><span>1</span><span data-i18n="formatStep1">Выберите тип занятия</span></p>
+        <div class="format-grid format-type-grid" role="group" aria-label="Тип занятия" data-i18n-aria-label="lessonTypeLabel">
+          <button type="button" class="format-card format-choice" data-lesson-type="individual" aria-pressed="false"><span class="format-symbol" aria-hidden="true">👩‍🏫</span><h3 data-i18n="formatIndividual">Индивидуально</h3><p data-i18n="formatIndividualText">Всё внимание преподавателя направлено на одного ребёнка.</p><span class="choice-hint" data-i18n="chooseThis">Выбрать →</span></button>
+          <button type="button" class="format-card format-choice" data-lesson-type="group" aria-pressed="false"><span class="format-symbol" aria-hidden="true">👥</span><h3 data-i18n="formatGroup">В группе</h3><p data-i18n="formatGroupText">Занятия вместе с другими детьми, если в подходящей группе есть место.</p><span class="choice-hint" data-i18n="chooseThis">Выбрать →</span></button>
+        </div>
+        <div class="format-followup" id="format-followup" hidden>
+          <p class="format-step-label"><span>2</span><span data-i18n="formatStep2">Теперь выберите способ участия</span></p>
+          <div class="format-grid format-delivery-grid" role="group" aria-label="Способ участия" data-i18n-aria-label="deliveryTypeLabel">
+            <button type="button" class="format-card format-choice delivery-choice" data-delivery="offline" aria-pressed="false"><span class="format-symbol" aria-hidden="true">🏡</span><h3 data-i18n="formatOffline">Офлайн</h3><p data-i18n="formatOfflineText">Очные занятия по адресу центра в селе Овташен.</p></button>
+            <button type="button" class="format-card format-choice delivery-choice" data-delivery="online" aria-pressed="false"><span class="format-symbol" aria-hidden="true">💻</span><h3 data-i18n="formatOnline">Онлайн</h3><p data-i18n="formatOnlineText">Дистанционные занятия для семей, которым удобнее заниматься из дома.</p></button>
+          </div>
         </div>
       </div>
     </section>
@@ -138,11 +149,11 @@
 
     <section class="section section-soft" id="reviews" aria-labelledby="reviews-title">
       <div class="container">
-        <div class="section-heading center-heading"><p class="eyebrow" data-i18n="reviewsEyebrow">Отзывы родителей</p><h2 id="reviews-title" data-i18n="reviewsTitle">Здесь будут реальные отзывы родителей</h2><p data-i18n="reviewsIntro">Мы не придумываем отзывы: в финальной версии сюда будут добавлены ваши настоящие материалы.</p></div>
+        <div class="section-heading center-heading"><p class="eyebrow" data-i18n="reviewsEyebrow">Отзывы родителей</p><h2 id="reviews-title" data-i18n="reviewsTitle">Отзывы родителей о занятиях</h2><p data-i18n="reviewsIntro">Ниже — временные примеры оформления. Позже вы сможете заменить их настоящими отзывами родителей.</p></div>
         <div class="reviews-grid">
-          <article class="review-card placeholder-review"><span data-i18n="review1">Отзыв 1</span><p data-i18n="reviewPlaceholder">Добавьте настоящий отзыв родителя.</p></article>
-          <article class="review-card placeholder-review"><span data-i18n="review2">Отзыв 2</span><p data-i18n="reviewPlaceholder">Добавьте настоящий отзыв родителя.</p></article>
-          <article class="review-card placeholder-review"><span data-i18n="review3">Отзыв 3</span><p data-i18n="reviewPlaceholder">Добавьте настоящий отзыв родителя.</p></article>
+          <article class="review-card sample-review"><span class="review-emoji" aria-hidden="true">😊</span><strong data-i18n="review1">Пример отзыва</strong><p data-i18n="review1Text">Ребёнок стал увереннее выполнять задания и с большим интересом рассказывает о занятиях.</p><small data-i18n="sampleReviewNote">Временный текст · замените реальным отзывом</small></article>
+          <article class="review-card sample-review"><span class="review-emoji" aria-hidden="true">🌟</span><strong data-i18n="review2">Пример отзыва</strong><p data-i18n="review2Text">Материал объясняют спокойно и понятно. Домашние задания больше не вызывают прежнего напряжения.</p><small data-i18n="sampleReviewNote">Временный текст · замените реальным отзывом</small></article>
+          <article class="review-card sample-review"><span class="review-emoji" aria-hidden="true">🤗</span><strong data-i18n="review3">Пример отзыва</strong><p data-i18n="review3Text">Нам нравится внимательное отношение к ребёнку и сочетание учёбы с развивающими играми.</p><small data-i18n="sampleReviewNote">Временный текст · замените реальным отзывом</small></article>
         </div>
       </div>
     </section>
@@ -159,8 +170,8 @@
         <div class="trial-copy">
           <p class="eyebrow eyebrow-light" data-i18n="trialEyebrow">Первый шаг</p>
           <h2 id="trial-title" data-i18n="trialTitle">Запишите ребёнка на бесплатное пробное занятие</h2>
-          <p data-i18n="trialText">Пробное занятие длится 40 минут. Учитель знакомится с ребёнком, понимает его трудности и после этого предлагает дальнейший формат работы.</p>
-          <div class="trial-points"><span data-i18n="trialPoint1">✓ Бесплатно</span><span data-i18n="trialPoint2">✓ 40 минут</span><span data-i18n="trialPoint3">✓ Для 1–6 классов</span><span data-i18n="trialPoint4">✓ Онлайн или офлайн</span></div>
+          <p data-i18n="trialText">Пробное занятие длится 90 минут. Учитель знакомится с ребёнком, понимает его трудности и после этого предлагает дальнейший формат работы.</p>
+          <div class="trial-points"><span data-i18n="trialPoint1">✓ Бесплатно</span><span data-i18n="trialPoint2">✓ 90 минут</span><span data-i18n="trialPoint3">✓ Для 1–6 классов</span><span data-i18n="trialPoint4">✓ Онлайн или офлайн</span></div>
           <div class="direct-contact"><strong data-i18n="phoneTitle">Можно связаться и напрямую</strong><p data-i18n="phonePlaceholder">Телефон: будет добавлен после получения номера.</p></div>
         </div>
 
@@ -173,7 +184,8 @@
             <label><span data-i18n="childName">Имя ребёнка *</span><input type="text" name="childName" required></label>
             <label><span data-i18n="grade">Класс *</span><select name="grade" required><option value="" data-i18n="chooseGrade">Выберите</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
           </div>
-          <fieldset><legend data-i18n="preferredMode">Предпочтительный формат *</legend><div class="radio-row"><label class="radio-card"><input type="radio" name="mode" value="online" required><span data-i18n="formatOnline">Онлайн</span></label><label class="radio-card"><input type="radio" name="mode" value="offline"><span data-i18n="formatOffline">Офлайн</span></label></div></fieldset>
+          <fieldset><legend data-i18n="lessonTypeLabel">Тип занятия *</legend><div class="radio-row"><label class="radio-card radio-card-rich"><input type="radio" name="lessonType" value="individual" required><span><b aria-hidden="true">👩‍🏫</b><span data-i18n="formatIndividual">Индивидуально</span></span></label><label class="radio-card radio-card-rich"><input type="radio" name="lessonType" value="group"><span><b aria-hidden="true">👥</b><span data-i18n="formatGroup">В группе</span></span></label></div></fieldset>
+          <fieldset class="mode-fieldset" id="mode-fieldset" hidden disabled><legend data-i18n="preferredMode">Способ участия *</legend><p class="field-help" data-i18n="modeAppearsHint">Выберите онлайн или офлайн</p><div class="radio-row"><label class="radio-card radio-card-rich"><input type="radio" name="mode" value="online" required disabled><span><b aria-hidden="true">💻</b><span data-i18n="formatOnline">Онлайн</span></span></label><label class="radio-card radio-card-rich"><input type="radio" name="mode" value="offline" disabled><span><b aria-hidden="true">🏡</b><span data-i18n="formatOffline">Офлайн</span></span></label></div></fieldset>
           <label><span data-i18n="helpField">С чем ребёнку сейчас нужна помощь?</span><textarea name="helpNeeded" rows="4" data-i18n-placeholder="helpPlaceholder" placeholder="Например: не понимает математику или не успевает с домашними заданиями"></textarea></label>
           <button class="submit-button" type="submit" data-i18n="submit">Отправить заявку</button>
           <p class="form-note" data-i18n="formNote">Сейчас форма работает как прототип: проверяет заполнение, но ещё не отправляет данные во внешнюю систему. Канал отправки нужно отдельно выбрать.</p>
@@ -189,6 +201,18 @@
       </div>
     </section>
   </main>
+
+  <aside class="quick-contact" aria-label="Быстрая связь" data-i18n-aria-label="quickContactLabel">
+    <div class="quick-contact-menu" id="quick-contact-menu" hidden>
+      <a href="#contacts"><span aria-hidden="true">📞</span><span><strong data-i18n="quickPhone">Позвонить</strong><small data-i18n="contactPending">Номер будет добавлен</small></span></a>
+      <a href="#contacts"><span aria-hidden="true">💬</span><span><strong>WhatsApp</strong><small data-i18n="contactPending">Номер будет добавлен</small></span></a>
+      <a href="#contacts"><span aria-hidden="true">🟣</span><span><strong>Viber</strong><small data-i18n="contactPending">Номер будет добавлен</small></span></a>
+    </div>
+    <button class="quick-contact-button" type="button" aria-expanded="false" aria-controls="quick-contact-menu" aria-label="Открыть быструю связь" data-i18n-aria-label="quickContactButton">
+      <span aria-hidden="true">✎</span>
+    </button>
+    <span class="quick-contact-caption" data-i18n="quickContactCaption">Связаться</span>
+  </aside>
 
   <footer class="site-footer">
     <div class="container footer-inner">
