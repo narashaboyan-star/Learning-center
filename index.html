@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kostanyan Learning Center — учебная поддержка и развивающие занятия для школьников 1–6 классов.">
   <title>Kostanyan Learning Center</title>
-  <link rel="stylesheet" href="styles.css?v=20260925-1">
+  <link rel="stylesheet" href="styles.css?v=20260926-2">
 </head>
 <body>
   <header class="site-header">
@@ -172,13 +172,13 @@
           <h2 id="trial-title" data-i18n="trialTitle">Запишите ребёнка на бесплатное пробное занятие</h2>
           <p data-i18n="trialText">Пробное занятие длится 90 минут. Учитель знакомится с ребёнком, понимает его трудности и после этого предлагает дальнейший формат работы.</p>
           <div class="trial-points"><span data-i18n="trialPoint1">✓ Бесплатно</span><span data-i18n="trialPoint2">✓ 90 минут</span><span data-i18n="trialPoint3">✓ Для 1–6 классов</span><span data-i18n="trialPoint4">✓ Онлайн или офлайн</span></div>
-          <div class="direct-contact"><strong data-i18n="phoneTitle">Можно связаться и напрямую</strong><p data-i18n="phonePlaceholder">Телефон: будет добавлен после получения номера.</p></div>
+          <div class="direct-contact"><strong data-i18n="phoneTitle">Можно связаться и напрямую</strong><p><a class="contact-phone-link" href="tel:+37494575768" data-i18n="phoneDisplay">+374 94 575 768</a></p></div>
         </div>
 
         <form class="trial-form" id="trial-form" novalidate>
           <div class="field-row">
             <label><span data-i18n="parentName">Имя родителя *</span><input type="text" name="parentName" autocomplete="name" required></label>
-            <label><span data-i18n="phone">Телефон *</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
+            <label><span data-i18n="phone">Телефон *</span><input type="tel" name="phone" autocomplete="tel" inputmode="numeric" pattern="0[0-9]{8}" minlength="9" maxlength="9" required><small class="field-help phone-hint" data-i18n="phoneInputHint">Только армянский номер: 9 цифр, начиная с 0</small></label>
           </div>
           <div class="field-row">
             <label><span data-i18n="childName">Имя ребёнка *</span><input type="text" name="childName" required></label>
@@ -198,16 +198,16 @@
     <section class="section contact-section" id="contacts" aria-labelledby="contacts-title">
       <div class="container contact-grid">
         <div><p class="eyebrow" data-i18n="contactsEyebrow">Контакты</p><h2 id="contacts-title" data-i18n="contactsTitle">Офлайн-занятия в Овташене</h2><p data-i18n="address">Армения, село Овташен, улица Камо 6, дом 6.</p></div>
-        <div class="contact-card"><strong data-i18n="contactPhone">Телефон</strong><p data-i18n="phonePlaceholder">Телефон: будет добавлен после получения номера.</p><strong>Instagram / Facebook</strong><p data-i18n="socialPlaceholder">Ссылки будут добавлены из ваших реальных аккаунтов.</p></div>
+        <div class="contact-card"><strong data-i18n="contactPhone">Телефон</strong><p><a class="contact-phone-link" href="tel:+37494575768" data-i18n="phoneDisplay">+374 94 575 768</a></p><strong>Instagram / Facebook</strong><p><a class="social-contact-link" href="https://www.facebook.com/profile.php?id=61592529187387" target="_blank" rel="noopener">Facebook</a></p></div>
       </div>
     </section>
   </main>
 
   <aside class="quick-contact" aria-label="Быстрая связь" data-i18n-aria-label="quickContactLabel">
     <div class="quick-contact-menu" id="quick-contact-menu" hidden>
-      <a href="#contacts"><span aria-hidden="true">📞</span><span><strong data-i18n="quickPhone">Позвонить</strong><small data-i18n="contactPending">Номер будет добавлен</small></span></a>
-      <a href="#contacts"><span aria-hidden="true">💬</span><span><strong>WhatsApp</strong><small data-i18n="contactPending">Номер будет добавлен</small></span></a>
-      <a href="#contacts"><span aria-hidden="true">🟣</span><span><strong>Viber</strong><small data-i18n="contactPending">Номер будет добавлен</small></span></a>
+      <a href="tel:+37494575768"><span aria-hidden="true">📞</span><span><strong data-i18n="quickPhone">Позвонить</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
+      <a href="https://wa.me/37494575768" target="_blank" rel="noopener"><span aria-hidden="true">💬</span><span><strong>WhatsApp</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
+      <a href="viber://chat?number=%2B37494575768"><span aria-hidden="true">🟣</span><span><strong>Viber</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
     </div>
     <button class="quick-contact-button" type="button" aria-expanded="false" aria-controls="quick-contact-menu" aria-label="Открыть быструю связь" data-i18n-aria-label="quickContactButton">
       <span aria-hidden="true">✎</span>
@@ -221,6 +221,6 @@
       <div class="footer-contact"><strong data-i18n="footerAddressTitle">Адрес</strong><p data-i18n="address">Армения, село Овташен, улица Камо 6, дом 6.</p></div>
     </div>
   </footer>
-  <script src="script.js?v=20260925-2"></script>
+  <script src="script.js?v=20260926-3"></script>
 </body>
 </html>

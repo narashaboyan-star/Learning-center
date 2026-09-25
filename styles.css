@@ -1127,6 +1127,30 @@ h3 {
   color: #d4e0dc;
 }
 
+.contact-phone-link {
+  color: inherit;
+  font-size: 1.08em;
+  font-weight: 800;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.contact-phone-link:hover,
+.contact-phone-link:focus-visible {
+  text-decoration: underline;
+}
+
+.social-contact-link {
+  color: var(--primary);
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.social-contact-link:hover,
+.social-contact-link:focus-visible {
+  color: var(--primary-dark);
+}
+
 .contact-section {
   background: #f8faf5;
 }
