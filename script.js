@@ -209,9 +209,9 @@ Object.assign(translations.en, {configurationMissing: "Delivery is not configure
 Object.assign(translations.ru, {phoneDisplay: "+374 94 575 768", phonePlaceholder: "+374 94 575 768", contactPending: "+374 94 575 768"});
 Object.assign(translations.hy, {phoneDisplay: "+374 94 575 768", phonePlaceholder: "+374 94 575 768", contactPending: "+374 94 575 768"});
 Object.assign(translations.en, {phoneDisplay: "+374 94 575 768", phonePlaceholder: "+374 94 575 768", contactPending: "+374 94 575 768"});
-Object.assign(translations.ru, {phoneInputPlaceholder: "094575768", phoneInputHint: "Только армянский номер: 9 цифр, начиная с 0", invalidArmenianPhone: "Введите армянский номер: 9 цифр, начиная с 0."});
-Object.assign(translations.hy, {phoneInputPlaceholder: "094575768", phoneInputHint: "Միայն հայկական համար՝ 0-ով սկսվող 9 թվանշան", invalidArmenianPhone: "Մուտքագրեք հայկական համար՝ 0-ով սկսվող 9 թվանշան։"});
-Object.assign(translations.en, {phoneInputPlaceholder: "094575768", phoneInputHint: "Armenian numbers only: 9 digits starting with 0", invalidArmenianPhone: "Enter an Armenian number: 9 digits starting with 0."});
+Object.assign(translations.ru, {phoneInputHint: "Только армянский номер: 9 цифр, начиная с 0", invalidArmenianPhone: "Введите армянский номер: 9 цифр, начиная с 0."});
+Object.assign(translations.hy, {phoneInputHint: "Միայն հայկական համար՝ 0-ով սկսվող 9 թվանշան", invalidArmenianPhone: "Մուտքագրեք հայկական համար՝ 0-ով սկսվող 9 թվանշան։"});
+Object.assign(translations.en, {phoneInputHint: "Armenian numbers only: 9 digits starting with 0", invalidArmenianPhone: "Enter an Armenian number: 9 digits starting with 0."});
 
 let currentLanguage = 'ru';
 const form = document.querySelector('#trial-form');

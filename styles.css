@@ -1140,6 +1140,17 @@ h3 {
   text-decoration: underline;
 }
 
+.social-contact-link {
+  color: var(--primary);
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.social-contact-link:hover,
+.social-contact-link:focus-visible {
+  color: var(--primary-dark);
+}
+
 .contact-section {
   background: #f8faf5;
 }
