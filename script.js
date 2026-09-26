@@ -232,6 +232,7 @@ const formatChips = document.querySelectorAll('.format-chip');
 const quickContact = document.querySelector('.quick-contact');
 const quickContactButton = document.querySelector('.quick-contact-button');
 const quickContactMenu = document.querySelector('#quick-contact-menu');
+const mainNavLinks = document.querySelectorAll('.main-nav a[href^="#"]');
 const formatTypeChoices = document.querySelectorAll('[data-lesson-type].format-choice');
 const deliveryChoices = document.querySelectorAll('[data-delivery].format-choice');
 const formatFollowup = document.querySelector('#format-followup');
@@ -239,6 +240,34 @@ const formatTypeGrid = document.querySelector('.format-type-grid');
 const lessonTypeInputs = document.querySelectorAll('input[name="lessonType"]');
 const modeFieldset = document.querySelector('#mode-fieldset');
 const modeInputs = document.querySelectorAll('input[name="mode"]');
+
+function setActiveNav(targetId) {
+  mainNavLinks.forEach((link) => {
+    const isActive = link.getAttribute('href') === `#${targetId}`;
+    link.classList.toggle('is-active', isActive);
+    if (isActive) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+}
+
+mainNavLinks.forEach((link) => {
+  link.addEventListener('click', () => setActiveNav(link.getAttribute('href').slice(1)));
+});
+
+if ('IntersectionObserver' in window && mainNavLinks.length) {
+  const observedSections = [...mainNavLinks]
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  const navObserver = new IntersectionObserver((entries) => {
+    const visibleSection = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visibleSection) setActiveNav(visibleSection.target.id);
+  }, { rootMargin: '-22% 0px -58% 0px', threshold: [0, .15, .4] });
+  observedSections.forEach((section) => navObserver.observe(section));
+}
+
+if (window.location.hash) setActiveNav(window.location.hash.slice(1));
 
 function validateArmenianPhone() {
   if (!phoneInput) return true;
