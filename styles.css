@@ -1483,8 +1483,29 @@ body {
   box-shadow: 0 22px 60px rgba(23,53,45,.22);
 }
 .quick-contact-menu[hidden] { display: none; }
-.quick-contact:hover .quick-contact-menu[hidden],
-.quick-contact:focus-within .quick-contact-menu[hidden] { display: block; }
+.quick-contact-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 6px 8px 12px;
+  color: var(--primary-dark);
+}
+.quick-contact-close {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 50%;
+  background: #f3dfd7;
+  color: var(--primary-dark);
+  cursor: pointer;
+  font: 700 25px/1 Arial, sans-serif;
+}
+.quick-contact-close:hover,
+.quick-contact-close:focus-visible { background: var(--accent-coral); color: #fff; }
 .quick-contact-menu a {
   display: grid;
   grid-template-columns: 42px 1fr;

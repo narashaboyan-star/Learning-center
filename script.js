@@ -203,6 +203,9 @@ Object.assign(translations.en, {preferredMode: "How to attend *"});
 Object.assign(translations.ru, {quickContactButton: "Открыть запись и контакты", quickContactCaption: "Записаться", quickBook: "Записаться на пробное занятие", quickBookNote: "Бесплатно, 90 минут"});
 Object.assign(translations.hy, {quickContactButton: "Բացել գրանցումն ու կապերը", quickContactCaption: "Գրանցվել", quickBook: "Գրանցվել փորձնական դասին", quickBookNote: "Անվճար, 90 րոպե"});
 Object.assign(translations.en, {quickContactButton: "Open booking and contacts", quickContactCaption: "Book now", quickBook: "Book a trial lesson", quickBookNote: "Free, 90 minutes"});
+Object.assign(translations.ru, {quickContactMenuTitle: "Запись и связь", quickContactClose: "Закрыть меню связи"});
+Object.assign(translations.hy, {quickContactMenuTitle: "Գրանցում և կապ", quickContactClose: "Փակել կապի ընտրացանկը"});
+Object.assign(translations.en, {quickContactMenuTitle: "Booking and contact", quickContactClose: "Close contact menu"});
 Object.assign(translations.ru, {teacherText: "Анушик Костанян окончила Армянский государственный экономический университет, получив степень магистра с отличием. Она преподавала в колледже Мангеймского университета в Германии и уже три года проводит занятия со школьниками в Армении и за её пределами."});
 Object.assign(translations.hy, {teacherText: "Անուշիկ Կոստանյանն ավարտել է ՀՊՏՀ-ն մագիստրոսի կոչմամբ և գերազանցությամբ։ Դասախոսել է Գերմանիայի Մաննհայմի համալսարանի քոլեջում և 3 տարի է կատարում է դասապատրաստումներ Հայաստանում և Հայաստանից դուրս։"});
 Object.assign(translations.en, {teacherText: "Anushik Kostanyan graduated from the Armenian State University of Economics with a master's degree and honours. She taught at the college of the University of Mannheim in Germany and has been tutoring students in Armenia and abroad for three years."});
@@ -235,6 +238,7 @@ const formatChips = document.querySelectorAll('.format-chip');
 const quickContact = document.querySelector('.quick-contact');
 const quickContactButton = document.querySelector('.quick-contact-button');
 const quickContactMenu = document.querySelector('#quick-contact-menu');
+const quickContactClose = document.querySelector('.quick-contact-close');
 const mainNavLinks = document.querySelectorAll('.main-nav a[href^="#"]');
 const formatTypeChoices = document.querySelectorAll('[data-lesson-type].format-choice');
 const deliveryChoices = document.querySelectorAll('[data-delivery].format-choice');
@@ -362,6 +366,10 @@ if (quickContactButton && quickContactMenu) {
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeQuickContact();
+  });
+  quickContactClose?.addEventListener('click', () => {
+    closeQuickContact();
+    quickContactButton.focus();
   });
   quickContactMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeQuickContact);
