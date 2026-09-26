@@ -85,7 +85,7 @@ const translations = {
     "reviewPlaceholder": "Add a genuine parent review.",
     "priceEyebrow": "Fees",
     "priceTitle": "Fee to be confirmed",
-    "priceText": "The estimated fee is AMD 25,000. This amount is not final until confirmed.",
+    "priceText": "The fee is AMD 15,000.",
     "priceLabel": "Fee status",
     "priceValue": "To be confirmed",
     "priceNote": "The final fee will be added once confirmed.",
@@ -148,7 +148,7 @@ const translations = {
     teacherPhoto: 'Фото Анушик Костанян', teacherPhotoNote: 'Добавьте реальную фотографию', teacherEyebrow: 'Преподаватель', teacherText: 'Анушик Костанян окончила Армянский государственный экономический университет с отличием. В центре она ведёт занятия для школьников 1–6 классов и помогает по предметам текущей школьной программы.', teacherApproachTitle: 'Подход к ребёнку', teacherApproachText: 'Сначала понять трудности ребёнка, затем объяснять материал понятным способом и сочетать учебные задания с развивающими упражнениями.',
     materialsEyebrow: 'Игры и материалы', materialsTitle: 'Ребёнок не только делает уроки', materialsIntro: 'Развивающие игры и упражнения помогают менять темп занятия, тренировать внимание и делать процесс более вовлекающим.', photoLesson: 'Фото с занятия', developmentGame: 'Развивающая игра', studyMaterials: 'Учебные материалы', lessonVideo: 'Видео с занятия', realMediaNote: 'Добавьте реальный материал',
     reviewsEyebrow: 'Отзывы родителей', reviewsTitle: 'Здесь будут реальные отзывы родителей', reviewsIntro: 'Мы не придумываем отзывы: в финальной версии сюда будут добавлены ваши настоящие материалы.', review1: 'Отзыв 1', review2: 'Отзыв 2', review3: 'Отзыв 3', reviewPlaceholder: 'Добавьте настоящий отзыв родителя.',
-    priceEyebrow: 'Стоимость', priceTitle: 'Цена пока уточняется', priceText: 'Ориентир — 25 000 AMD, но мы не показываем эту сумму как окончательную, пока она не подтверждена.', priceLabel: 'Статус цены', priceValue: 'Уточняется', priceNote: 'Окончательную стоимость добавим после вашего подтверждения.',
+    priceEyebrow: 'Стоимость', priceTitle: 'Стоимость занятий', priceText: 'Стоимость — 15 000 AMD.', priceLabel: 'Стоимость', priceValue: '15 000 AMD', priceNote: 'Подходящий формат занятий уточняется после пробного занятия.',
     trialEyebrow: 'Первый шаг', trialTitle: 'Запишите ребёнка на бесплатное пробное занятие', trialText: 'Пробное занятие длится 40 минут. Учитель знакомится с ребёнком, понимает его трудности и после этого предлагает дальнейший формат работы.', trialPoint1: '✓ Бесплатно', trialPoint2: '✓ 40 минут', trialPoint3: '✓ Для 1–6 классов', trialPoint4: '✓ Онлайн или офлайн', phoneTitle: 'Можно связаться и напрямую', phonePlaceholder: 'Телефон: будет добавлен после получения номера.', parentName: 'Имя родителя *', phone: 'Телефон *', childName: 'Имя ребёнка *', grade: 'Класс *', chooseGrade: 'Выберите', preferredMode: 'Предпочтительный формат *', helpField: 'С чем ребёнку сейчас нужна помощь?', helpPlaceholder: 'Например: не понимает математику или не успевает с домашними заданиями', submit: 'Отправить заявку', formNote: 'Сейчас форма работает как прототип: проверяет заполнение, но ещё не отправляет данные во внешнюю систему. Канал отправки нужно отдельно выбрать.', success: 'Форма заполнена правильно. Следующий технический шаг — подключить канал, куда будут приходить заявки.',
     contactsEyebrow: 'Контакты', contactsTitle: 'Офлайн-занятия в Овташене', address: 'Армения, село Овташен, улица Камо 6, дом 6.', contactPhone: 'Телефон', socialPlaceholder: 'Ссылки будут добавлены из ваших реальных аккаунтов.', footerText: 'Учебная поддержка и развивающие занятия для школьников 1–6 классов.', footerAddressTitle: 'Адрес'
   },
@@ -177,7 +177,7 @@ const translations = {
     teacherPhoto: 'Անուշիկ Կոստանյանի լուսանկար', teacherPhotoNote: 'Ավելացրեք իրական լուսանկարը', teacherEyebrow: 'Դասավանդող', teacherText: 'Անուշիկ Կոստանյանն ավարտել է Հայաստանի պետական տնտեսագիտական համալսարանը գերազանցությամբ։ Կենտրոնում նա աշխատում է 1–6-րդ դասարանների աշակերտների հետ և օգնում դպրոցական ծրագրի առարկաների հարցում։', teacherApproachTitle: 'Մոտեցում երեխային', teacherApproachText: 'Սկզբում հասկանալ երեխայի դժվարությունները, հետո նյութը բացատրել հասկանալի ձևով և ուսուցումը համադրել զարգացնող վարժությունների հետ։',
     materialsEyebrow: 'Խաղեր և նյութեր', materialsTitle: 'Երեխան միայն տնային առաջադրանք չի կատարում', materialsIntro: 'Զարգացնող խաղերն ու վարժությունները օգնում են փոխել դասի տեմպը, զարգացնել ուշադրությունը և ավելի հետաքրքիր դարձնել ուսուցումը։', photoLesson: 'Լուսանկար դասից', developmentGame: 'Զարգացնող խաղ', studyMaterials: 'Ուսումնական նյութեր', lessonVideo: 'Տեսանյութ դասից', realMediaNote: 'Ավելացրեք իրական նյութ',
     reviewsEyebrow: 'Ծնողների կարծիքներ', reviewsTitle: 'Այստեղ կլինեն իրական ծնողների կարծիքները', reviewsIntro: 'Մենք չենք հորինում կարծիքներ․ վերջնական տարբերակում կավելացվեն ձեր իրական նյութերը։', review1: 'Կարծիք 1', review2: 'Կարծիք 2', review3: 'Կարծիք 3', reviewPlaceholder: 'Ավելացրեք իրական ծնողի կարծիքը։',
-    priceEyebrow: 'Արժեք', priceTitle: 'Գինը դեռ ճշտվում է', priceText: 'Նախնական կողմնորոշիչը 25 000 AMD է, սակայն այդ գումարը վերջնական չենք ներկայացնում, քանի դեռ այն հաստատված չէ։', priceLabel: 'Գնի կարգավիճակ', priceValue: 'Ճշտվում է', priceNote: 'Վերջնական արժեքը կավելացնենք ձեր հաստատումից հետո։',
+    priceEyebrow: 'Արժեք', priceTitle: 'Դասերի արժեքը', priceText: 'Արժեքը՝ 15 000 AMD։', priceLabel: 'Արժեք', priceValue: '15 000 AMD', priceNote: 'Հարմար դասաձևը կճշտվի փորձնական դասից հետո։',
     trialEyebrow: 'Առաջին քայլ', trialTitle: 'Գրանցեք երեխային անվճար փորձնական դասին', trialText: 'Փորձնական դասը տևում է 40 րոպե։ Դասավանդողը ծանոթանում է երեխայի հետ, հասկանում նրա դժվարությունները և դրանից հետո առաջարկում աշխատանքի հետագա ձևաչափը։', trialPoint1: '✓ Անվճար', trialPoint2: '✓ 40 րոպե', trialPoint3: '✓ 1–6-րդ դասարաններ', trialPoint4: '✓ Առցանց կամ առկա', phoneTitle: 'Կարող եք կապվել նաև անմիջապես', phonePlaceholder: 'Հեռախոսահամարը կավելացվի այն ստանալուց հետո։', parentName: 'Ծնողի անուն *', phone: 'Հեռախոս *', childName: 'Երեխայի անուն *', grade: 'Դասարան *', chooseGrade: 'Ընտրել', preferredMode: 'Նախընտրելի ձևաչափ *', helpField: 'Ինչ հարցում է երեխային հիմա օգնություն պետք։', helpPlaceholder: 'Օրինակ՝ դժվար է հասկանում մաթեմատիկան կամ չի հասցնում տնայինները', submit: 'Ուղարկել հայտը', formNote: 'Այժմ ձևը աշխատում է որպես նախատիպ․ ստուգում է լրացված դաշտերը, բայց տվյալները դեռ արտաքին համակարգ չի ուղարկում։ Ուղարկման ալիքը պետք է առանձին ընտրել։', success: 'Ձևը ճիշտ է լրացված։ Հաջորդ տեխնիկական քայլը հայտերի ստացման ալիքը միացնելն է։',
     contactsEyebrow: 'Կոնտակտներ', contactsTitle: 'Առկա դասեր Օվթաշենում', address: 'Հայաստան, Օվթաշեն գյուղ, Կամո 6 փողոց, տուն 6։', contactPhone: 'Հեռախոս', socialPlaceholder: 'Հղումները կավելացվեն ձեր իրական էջերից։', footerText: 'Ուսումնական աջակցություն և զարգացնող դասեր 1–6-րդ դասարանների աշակերտների համար։', footerAddressTitle: 'Հասցե'
   }
@@ -206,6 +206,9 @@ Object.assign(translations.en, {quickContactButton: "Open booking and contacts",
 Object.assign(translations.ru, {teacherText: "Анушик Костанян окончила Армянский государственный экономический университет, получив степень магистра с отличием. Она преподавала в колледже Мангеймского университета в Германии и уже три года проводит занятия со школьниками в Армении и за её пределами."});
 Object.assign(translations.hy, {teacherText: "Անուշիկ Կոստանյանն ավարտել է ՀՊՏՀ-ն մագիստրոսի կոչմամբ և գերազանցությամբ։ Դասախոսել է Գերմանիայի Մաննհայմի համալսարանի քոլեջում և 3 տարի է կատարում է դասապատրաստումներ Հայաստանում և Հայաստանից դուրս։"});
 Object.assign(translations.en, {teacherText: "Anushik Kostanyan graduated from the Armenian State University of Economics with a master's degree and honours. She taught at the college of the University of Mannheim in Germany and has been tutoring students in Armenia and abroad for three years."});
+Object.assign(translations.ru, {priceTitle: "Стоимость занятий", priceText: "Стоимость — 15 000 AMD.", priceLabel: "Стоимость", priceValue: "15 000 AMD", priceNote: "Подходящий формат занятий уточняется после пробного занятия."});
+Object.assign(translations.hy, {priceTitle: "Դասերի արժեքը", priceText: "Արժեքը՝ 15 000 AMD։", priceLabel: "Արժեք", priceValue: "15 000 AMD", priceNote: "Հարմար դասաձևը կճշտվի փորձնական դասից հետո։"});
+Object.assign(translations.en, {priceTitle: "Lesson fee", priceText: "The fee is AMD 15,000.", priceLabel: "Fee", priceValue: "AMD 15,000", priceNote: "The suitable lesson format is confirmed after the trial lesson."});
 Object.assign(translations.ru, {formNote: "Заявка будет безопасно передана владельцу через Telegram.", success: "Заявка отправлена. Владелец свяжется с вами.", sending: "Отправляем…", sendError: "Не удалось отправить заявку. Проверьте связь и попробуйте ещё раз.", retrySubmit: "Повторить отправку"});
 Object.assign(translations.hy, {formNote: "Հայտը անվտանգ կփոխանցվի սեփականատիրոջը Telegram-ի միջոցով։", success: "Հայտն ուղարկվել է։ Սեփականատերը կկապվի ձեզ հետ։", sending: "Ուղարկում ենք…", sendError: "Չհաջողվեց ուղարկել հայտը։ Ստուգեք կապը և փորձեք կրկին։", retrySubmit: "Վերաուղարկել"});
 Object.assign(translations.en, {formNote: "Your request will be securely delivered to the owner through Telegram.", success: "Request sent. The owner will contact you.", sending: "Sending…", sendError: "We could not send your request. Check your connection and try again.", retrySubmit: "Try sending again"});
@@ -240,6 +243,8 @@ const formatTypeGrid = document.querySelector('.format-type-grid');
 const lessonTypeInputs = document.querySelectorAll('input[name="lessonType"]');
 const modeFieldset = document.querySelector('#mode-fieldset');
 const modeInputs = document.querySelectorAll('input[name="mode"]');
+let activeNavLock = '';
+let activeNavUnlockTimer;
 
 function setActiveNav(targetId) {
   mainNavLinks.forEach((link) => {
@@ -251,7 +256,16 @@ function setActiveNav(targetId) {
 }
 
 mainNavLinks.forEach((link) => {
-  link.addEventListener('click', () => setActiveNav(link.getAttribute('href').slice(1)));
+  link.addEventListener('click', () => {
+    const targetId = link.getAttribute('href').slice(1);
+    activeNavLock = targetId;
+    window.clearTimeout(activeNavUnlockTimer);
+    setActiveNav(targetId);
+    activeNavUnlockTimer = window.setTimeout(() => {
+      activeNavLock = '';
+      setActiveNav(targetId);
+    }, 1100);
+  });
 });
 
 if ('IntersectionObserver' in window && mainNavLinks.length) {
@@ -259,6 +273,7 @@ if ('IntersectionObserver' in window && mainNavLinks.length) {
     .map((link) => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
   const navObserver = new IntersectionObserver((entries) => {
+    if (activeNavLock) return;
     const visibleSection = entries
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
