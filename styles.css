@@ -1427,15 +1427,13 @@ body {
   gap: 12px;
 }
 .quick-contact::before {
-  content: "〰 〰 ✦";
+  content: "✦";
   position: absolute;
   right: 54px;
   bottom: 15px;
-  width: 108px;
+  width: 36px;
   color: var(--accent-coral);
-  font-family: cursive;
-  font-size: 22px;
-  letter-spacing: -4px;
+  font-size: 24px;
   opacity: .72;
   transform: rotate(-8deg);
   pointer-events: none;
@@ -1565,34 +1563,38 @@ h1 { font-size: clamp(40px, 4.8vw, 64px); }
 }
 .radio-card-rich b { font-size: 27px; font-weight: 400; filter: drop-shadow(0 5px 5px rgba(31,65,53,.16)); }
 
-.quick-contact { bottom: 118px; }
+.quick-contact { bottom: 96px; }
 .quick-contact-button {
-  width: 74px;
-  height: 74px;
-  background: var(--accent-yellow);
-  color: var(--primary-dark);
+  width: auto;
+  min-width: 148px;
+  height: 62px;
+  padding: 0 20px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 999px;
+  background: var(--accent-coral);
+  color: #fff;
   border-color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 850;
+  transform: none;
 }
+.quick-contact-icon { font-size: 28px; line-height: 1; filter: drop-shadow(0 4px 5px rgba(23,53,45,.18)); }
+.quick-contact-button-text { white-space: nowrap; }
 .quick-contact-button:hover,
 .quick-contact-button:focus-visible,
 .quick-contact-button[aria-expanded="true"] {
-  background: #ffd75f;
-  animation: pencil-wiggle 720ms ease-in-out infinite alternate;
+  background: var(--primary);
+  animation: contact-pulse 720ms ease-in-out infinite alternate;
 }
-.quick-contact-caption {
-  margin-top: -8px;
-  padding: 5px 11px;
-  border-radius: 999px;
-  background: var(--primary-dark);
-  color: white;
-  font-size: 12px;
-  font-weight: 800;
-  box-shadow: 0 8px 20px rgba(23,53,45,.2);
+@keyframes contact-pulse {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-5px) scale(1.035); }
 }
-@keyframes pencil-wiggle {
-  0% { transform: translateY(0) rotate(-10deg) scale(1.03); }
-  100% { transform: translateY(-9px) rotate(8deg) scale(1.08); }
-}
+.quick-book-link { background: #edf2df; }
 
 @media (max-width: 880px) {
   .hero-visual { min-height: 450px; transform: translateY(-12px); }
@@ -1604,10 +1606,14 @@ h1 { font-size: clamp(40px, 4.8vw, 64px); }
   .hero { padding-bottom: 34px; }
   .hero-visual { min-height: 350px; transform: none; }
   .format-type-grid, .format-delivery-grid { grid-template-columns: 1fr; }
-  .format-card.format-choice { min-height: 0; }
-  .quick-contact { bottom: 84px; }
-  .quick-contact-button { width: 64px; height: 64px; }
-  .quick-contact-caption { font-size: 11px; }
+  .format-card.format-choice { min-height: 0; padding: 22px; }
+  .format-type-grid, .format-delivery-grid { gap: 14px; }
+  .format-followup { margin-top: 24px; padding: 18px 12px 14px; border: 2px solid rgba(40,108,89,.2); border-radius: 26px; background: rgba(237,242,223,.66); box-shadow: 0 14px 34px rgba(23,53,45,.11); }
+  .format-followup .format-step-label { margin-bottom: 16px; }
+  .format-type-grid.has-selection .format-choice.is-selected { box-shadow: 0 14px 32px rgba(40,108,89,.17); }
+  .quick-contact { right: 12px; bottom: 72px; }
+  .quick-contact-button { min-width: 138px; height: 56px; padding: 0 16px 0 12px; font-size: 14px; }
+  .quick-contact-icon { font-size: 25px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

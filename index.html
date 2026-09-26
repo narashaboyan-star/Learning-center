@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kostanyan Learning Center — учебная поддержка и развивающие занятия для школьников 1–6 классов.">
   <title>Kostanyan Learning Center</title>
-  <link rel="stylesheet" href="styles.css?v=20260926-2">
+  <link rel="stylesheet" href="styles.css?v=20260926-3">
 </head>
 <body>
   <header class="site-header">
@@ -111,7 +111,7 @@
           <button type="button" class="format-card format-choice" data-lesson-type="individual" aria-pressed="false"><span class="format-symbol" aria-hidden="true">👩‍🏫</span><h3 data-i18n="formatIndividual">Индивидуально</h3><p data-i18n="formatIndividualText">Всё внимание преподавателя направлено на одного ребёнка.</p><span class="choice-hint" data-i18n="chooseThis">Выбрать →</span></button>
           <button type="button" class="format-card format-choice" data-lesson-type="group" aria-pressed="false"><span class="format-symbol" aria-hidden="true">👥</span><h3 data-i18n="formatGroup">В группе</h3><p data-i18n="formatGroupText">Занятия вместе с другими детьми, если в подходящей группе есть место.</p><span class="choice-hint" data-i18n="chooseThis">Выбрать →</span></button>
         </div>
-        <div class="format-followup" id="format-followup" hidden>
+        <div class="format-followup" id="format-followup" hidden aria-live="polite">
           <p class="format-step-label"><span>2</span><span data-i18n="formatStep2">Теперь выберите способ участия</span></p>
           <div class="format-grid format-delivery-grid" role="group" aria-label="Способ участия" data-i18n-aria-label="deliveryTypeLabel">
             <button type="button" class="format-card format-choice delivery-choice" data-delivery="offline" aria-pressed="false"><span class="format-symbol" aria-hidden="true">🏡</span><h3 data-i18n="formatOffline">Офлайн</h3><p data-i18n="formatOfflineText">Очные занятия по адресу центра в селе Овташен.</p></button>
@@ -205,14 +205,15 @@
 
   <aside class="quick-contact" aria-label="Быстрая связь" data-i18n-aria-label="quickContactLabel">
     <div class="quick-contact-menu" id="quick-contact-menu" hidden>
+      <a class="quick-book-link" href="#trial"><span aria-hidden="true">📝</span><span><strong data-i18n="quickBook">Записаться на пробное занятие</strong><small data-i18n="quickBookNote">Бесплатно, 90 минут</small></span></a>
       <a href="tel:+37494575768"><span aria-hidden="true">📞</span><span><strong data-i18n="quickPhone">Позвонить</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
       <a href="https://wa.me/37494575768" target="_blank" rel="noopener"><span aria-hidden="true">💬</span><span><strong>WhatsApp</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
       <a href="viber://chat?number=%2B37494575768"><span aria-hidden="true">🟣</span><span><strong>Viber</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
     </div>
-    <button class="quick-contact-button" type="button" aria-expanded="false" aria-controls="quick-contact-menu" aria-label="Открыть быструю связь" data-i18n-aria-label="quickContactButton">
-      <span aria-hidden="true">✎</span>
+    <button class="quick-contact-button" type="button" aria-expanded="false" aria-controls="quick-contact-menu" aria-label="Открыть запись и контакты" data-i18n-aria-label="quickContactButton">
+      <span class="quick-contact-icon" aria-hidden="true">📞</span>
+      <span class="quick-contact-button-text" data-i18n="quickContactCaption">Записаться</span>
     </button>
-    <span class="quick-contact-caption" data-i18n="quickContactCaption">Связаться</span>
   </aside>
 
   <footer class="site-footer">
@@ -221,6 +222,6 @@
       <div class="footer-contact"><strong data-i18n="footerAddressTitle">Адрес</strong><p data-i18n="address">Армения, село Овташен, улица Камо 6, дом 6.</p></div>
     </div>
   </footer>
-  <script src="script.js?v=20260926-3"></script>
+  <script src="script.js?v=20260926-4"></script>
 </body>
 </html>

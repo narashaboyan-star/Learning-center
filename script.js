@@ -200,6 +200,9 @@ Object.assign(translations.hy, {heroCta: "Գրանցվել անվճար 90 րո�
 Object.assign(translations.en, {heroCta: "Book a free 90-minute lesson", step1Text: "90 minutes to meet your child, talk with you and observe how your child approaches tasks.", trialText: "The trial lesson lasts 90 minutes. The teacher gets to know your child, understands their difficulties and suggests a suitable format for future lessons.", trialPoint2: "✓ 90 minutes", lessonTypeLabel: "Lesson type", deliveryTypeLabel: "How to attend", formatStep1: "Choose the lesson type", formatStep2: "Now choose how to attend", chooseThis: "Choose →", modeAppearsHint: "Choose online or in person", quickContactCaption: "Contact us"});
 Object.assign(translations.hy, {preferredMode: "Մասնակցության ձևը *"});
 Object.assign(translations.en, {preferredMode: "How to attend *"});
+Object.assign(translations.ru, {quickContactButton: "Открыть запись и контакты", quickContactCaption: "Записаться", quickBook: "Записаться на пробное занятие", quickBookNote: "Бесплатно, 90 минут"});
+Object.assign(translations.hy, {quickContactButton: "Բացել գրանցումն ու կապերը", quickContactCaption: "Գրանցվել", quickBook: "Գրանցվել փորձնական դասին", quickBookNote: "Անվճար, 90 րոպե"});
+Object.assign(translations.en, {quickContactButton: "Open booking and contacts", quickContactCaption: "Book now", quickBook: "Book a trial lesson", quickBookNote: "Free, 90 minutes"});
 Object.assign(translations.ru, {formNote: "Заявка будет безопасно передана владельцу через Telegram.", success: "Заявка отправлена. Владелец свяжется с вами.", sending: "Отправляем…", sendError: "Не удалось отправить заявку. Проверьте связь и попробуйте ещё раз.", retrySubmit: "Повторить отправку"});
 Object.assign(translations.hy, {formNote: "Հայտը անվտանգ կփոխանցվի սեփականատիրոջը Telegram-ի միջոցով։", success: "Հայտն ուղարկվել է։ Սեփականատերը կկապվի ձեզ հետ։", sending: "Ուղարկում ենք…", sendError: "Չհաջողվեց ուղարկել հայտը։ Ստուգեք կապը և փորձեք կրկին։", retrySubmit: "Վերաուղարկել"});
 Object.assign(translations.en, {formNote: "Your request will be securely delivered to the owner through Telegram.", success: "Request sent. The owner will contact you.", sending: "Sending…", sendError: "We could not send your request. Check your connection and try again.", retrySubmit: "Try sending again"});
@@ -229,6 +232,7 @@ const quickContactMenu = document.querySelector('#quick-contact-menu');
 const formatTypeChoices = document.querySelectorAll('[data-lesson-type].format-choice');
 const deliveryChoices = document.querySelectorAll('[data-delivery].format-choice');
 const formatFollowup = document.querySelector('#format-followup');
+const formatTypeGrid = document.querySelector('.format-type-grid');
 const lessonTypeInputs = document.querySelectorAll('input[name="lessonType"]');
 const modeFieldset = document.querySelector('#mode-fieldset');
 const modeInputs = document.querySelectorAll('input[name="mode"]');
@@ -263,7 +267,15 @@ formatTypeChoices.forEach((button) => {
       choice.classList.toggle('is-selected', selected);
       choice.setAttribute('aria-pressed', String(selected));
     });
-    if (formatFollowup) formatFollowup.hidden = false;
+    if (formatTypeGrid) formatTypeGrid.classList.add('has-selection');
+    if (formatFollowup) {
+      formatFollowup.hidden = false;
+      if (window.matchMedia('(max-width: 700px)').matches) {
+        requestAnimationFrame(() => {
+          formatFollowup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+    }
   });
 });
 
@@ -303,6 +315,9 @@ if (quickContactButton && quickContactMenu) {
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeQuickContact();
+  });
+  quickContactMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeQuickContact);
   });
 }
 
