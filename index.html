@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kostanyan Learning Center — учебная поддержка и развивающие занятия для школьников 1–6 классов.">
   <title>Kostanyan Learning Center</title>
-  <link rel="stylesheet" href="styles.css?v=20260926-6">
+  <link rel="stylesheet" href="styles.css?v=20260927-3">
 </head>
 <body>
   <header class="site-header">
@@ -22,9 +22,9 @@
       </nav>
       <div class="header-actions">
         <div class="language-switch" aria-label="Выбор языка" data-i18n-aria-label="languageLabel">
-          <button type="button" class="lang-button is-active" data-lang="ru">RU</button>
-          <button type="button" class="lang-button" data-lang="hy">HY</button>
-          <button type="button" class="lang-button" data-lang="en">EN</button>
+          <button type="button" class="lang-button is-active" data-lang="ru" aria-label="Русский" title="Русский">РУС</button>
+          <button type="button" class="lang-button" data-lang="hy" aria-label="Հայերեն" title="Հայերեն">ՀԱՅ</button>
+          <button type="button" class="lang-button" data-lang="en" aria-label="English" title="English">ENG</button>
         </div>
         <a class="header-cta" href="#trial" data-i18n="headerCta">Пробное занятие</a>
       </div>
@@ -42,15 +42,14 @@
           <h1 id="hero-title" data-i18n="heroTitle">Помогаем ребёнку учиться с интересом и уверенностью</h1>
           <p class="hero-description" data-i18n="heroDescription">Разбираем школьный материал, помогаем с домашними заданиями и развиваем важные навыки через индивидуальный подход и развивающие игры.</p>
           <div class="format-list" aria-label="Форматы занятий" data-i18n-aria-label="formatsLabel">
-            <button type="button" class="format-chip" data-format="individual" data-i18n="formatIndividual">Индивидуально</button>
-            <button type="button" class="format-chip" data-format="group" data-i18n="formatGroup">В группе</button>
-            <button type="button" class="format-chip" data-format="online" data-i18n="formatOnline">Онлайн</button>
-            <button type="button" class="format-chip" data-format="offline" data-i18n="formatOffline">Офлайн</button>
+            <button type="button" class="format-chip" data-format="individual" data-i18n="formatIndividual" aria-pressed="false">Индивидуально</button>
+            <button type="button" class="format-chip" data-format="group" data-i18n="formatGroup" aria-pressed="false">В группе</button>
+            <button type="button" class="format-chip" data-format="online" data-i18n="formatOnline" aria-pressed="false">Онлайн</button>
+            <button type="button" class="format-chip" data-format="offline" data-i18n="formatOffline" aria-pressed="false">Офлайн</button>
           </div>
-          <div class="format-price" id="format-price" aria-live="polite" hidden>
-            <span data-i18n="selectedFormatPriceLabel">Ориентировочная стоимость</span>
-            <strong>15 000 ֏</strong>
-            <small data-i18n="selectedFormatPriceNote">Финальную стоимость уточним после пробного занятия.</small>
+          <div class="format-details" id="format-details" aria-live="polite" hidden>
+            <strong id="format-detail-title"></strong>
+            <p id="format-detail-text"></p>
           </div>
           <a class="primary-cta" href="#trial" data-i18n="heroCta">Записаться бесплатно на 90 минут</a>
         <a class="text-link gallery-link" href="gallery.html" data-page-link data-i18n="galleryLink">Посмотреть, как проходят занятия →</a>
@@ -103,24 +102,6 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="formats-title">
-      <div class="container">
-        <div class="section-heading center-heading"><p class="eyebrow" data-i18n="formatsEyebrow">Форматы</p><h2 id="formats-title" data-i18n="formatsTitle">Подбираем удобный формат для семьи и ребёнка</h2></div>
-        <p class="format-step-label"><span>1</span><span data-i18n="formatStep1">Выберите тип занятия</span></p>
-        <div class="format-grid format-type-grid" role="group" aria-label="Тип занятия" data-i18n-aria-label="lessonTypeLabel">
-          <button type="button" class="format-card format-choice" data-lesson-type="individual" aria-pressed="false"><span class="format-symbol" aria-hidden="true">👩‍🏫</span><h3 data-i18n="formatIndividual">Индивидуально</h3><p data-i18n="formatIndividualText">Всё внимание преподавателя направлено на одного ребёнка.</p><span class="choice-hint" data-i18n="chooseThis">Выбрать →</span></button>
-          <button type="button" class="format-card format-choice" data-lesson-type="group" aria-pressed="false"><span class="format-symbol" aria-hidden="true">👥</span><h3 data-i18n="formatGroup">В группе</h3><p data-i18n="formatGroupText">Занятия вместе с другими детьми, если в подходящей группе есть место.</p><span class="choice-hint" data-i18n="chooseThis">Выбрать →</span></button>
-        </div>
-        <div class="format-followup" id="format-followup" hidden aria-live="polite">
-          <p class="format-step-label"><span>2</span><span data-i18n="formatStep2">Теперь выберите способ участия</span></p>
-          <div class="format-grid format-delivery-grid" role="group" aria-label="Способ участия" data-i18n-aria-label="deliveryTypeLabel">
-            <button type="button" class="format-card format-choice delivery-choice" data-delivery="offline" aria-pressed="false"><span class="format-symbol" aria-hidden="true">🏡</span><h3 data-i18n="formatOffline">Офлайн</h3><p data-i18n="formatOfflineText">Очные занятия по адресу центра в селе Овташен.</p></button>
-            <button type="button" class="format-card format-choice delivery-choice" data-delivery="online" aria-pressed="false"><span class="format-symbol" aria-hidden="true">💻</span><h3 data-i18n="formatOnline">Онлайн</h3><p data-i18n="formatOnlineText">Дистанционные занятия для семей, которым удобнее заниматься из дома.</p></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-dark" id="teacher" aria-labelledby="teacher-title">
       <div class="container teacher-layout">
         <div class="teacher-photo placeholder-media" role="img" aria-label="Место для фотографии Анушик Костанян" data-i18n-aria-label="teacherPhotoLabel"><span data-i18n="teacherPhoto">Фото Анушик Костанян</span><small data-i18n="teacherPhotoNote">Добавьте реальную фотографию</small></div>
@@ -155,13 +136,6 @@
           <article class="review-card sample-review"><span class="review-emoji" aria-hidden="true">🌟</span><strong data-i18n="review2">Пример отзыва</strong><p data-i18n="review2Text">Материал объясняют спокойно и понятно. Домашние задания больше не вызывают прежнего напряжения.</p><small data-i18n="sampleReviewNote">Временный текст · замените реальным отзывом</small></article>
           <article class="review-card sample-review"><span class="review-emoji" aria-hidden="true">🤗</span><strong data-i18n="review3">Пример отзыва</strong><p data-i18n="review3Text">Нам нравится внимательное отношение к ребёнку и сочетание учёбы с развивающими играми.</p><small data-i18n="sampleReviewNote">Временный текст · замените реальным отзывом</small></article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="price" aria-labelledby="price-title">
-      <div class="container price-layout">
-        <div><p class="eyebrow" data-i18n="priceEyebrow">Стоимость</p><h2 id="price-title" data-i18n="priceTitle">Стоимость занятий</h2><p class="price-description" data-i18n="priceText">Стоимость — 15 000 AMD.</p></div>
-        <div class="price-card"><span data-i18n="priceLabel">Стоимость</span><strong data-i18n="priceValue">15 000 AMD</strong><p data-i18n="priceNote">Подходящий формат занятий уточняется после пробного занятия.</p></div>
       </div>
     </section>
 
@@ -205,6 +179,10 @@
 
   <aside class="quick-contact" aria-label="Быстрая связь" data-i18n-aria-label="quickContactLabel">
     <div class="quick-contact-menu" id="quick-contact-menu" hidden>
+      <div class="quick-contact-menu-header">
+        <strong data-i18n="quickContactMenuTitle">Запись и связь</strong>
+        <button class="quick-contact-close" type="button" aria-label="Закрыть меню связи" data-i18n-aria-label="quickContactClose">×</button>
+      </div>
       <a class="quick-book-link" href="#trial"><span aria-hidden="true">📝</span><span><strong data-i18n="quickBook">Записаться на пробное занятие</strong><small data-i18n="quickBookNote">Бесплатно, 90 минут</small></span></a>
       <a href="tel:+37494575768"><span aria-hidden="true">📞</span><span><strong data-i18n="quickPhone">Позвонить</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
       <a href="https://wa.me/37494575768" target="_blank" rel="noopener"><span aria-hidden="true">💬</span><span><strong>WhatsApp</strong><small data-i18n="phoneDisplay">+374 94 575 768</small></span></a>
@@ -222,6 +200,6 @@
       <div class="footer-contact"><strong data-i18n="footerAddressTitle">Адрес</strong><p data-i18n="address">Армения, село Овташен, улица Камо 6, дом 6.</p></div>
     </div>
   </footer>
-  <script src="script.js?v=20260926-7"></script>
+  <script src="script.js?v=20260927-2"></script>
 </body>
 </html>
