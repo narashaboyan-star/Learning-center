@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The English version of this article is not available yet.">
+  <meta name="robots" content="noindex, follow">
+  <title>English version not available — Kostanyan Learning Center</title>
+  <link rel="stylesheet" href="../styles.css?v=20260928-1">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#top" aria-label="Kostanyan Learning Center">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span class="brand-text">Kostanyan Learning Center</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#help">Who we help</a>
+        <a href="index.html#approach">How lessons work</a>
+        <a href="index.html#teacher">Teacher</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switch" aria-label="Choose language">
+          <a class="lang-button" id="original-language-link" href="../ru/blog.html" title="Русский">РУС</a>
+          <a class="lang-button is-active" href="translation-unavailable.html" aria-current="page" title="English">ENG</a>
+        </div>
+        <a class="header-cta" href="index.html#trial">Trial lesson</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section blog-hero" aria-labelledby="unavailable-title">
+      <div class="container blog-intro">
+        <p class="eyebrow">Translation status</p>
+        <h1 id="unavailable-title">This article is not available in English yet</h1>
+        <p>We do not show the Russian article as if it were an English translation. You can read the original Russian version or return to the English blog.</p>
+        <div class="blog-empty-actions">
+          <a class="primary-cta" id="original-article-link" href="../ru/blog.html">Read the Russian version</a>
+          <a class="text-link" href="blog.html">← Back to the English blog</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><a class="brand footer-brand" href="index.html#top"><span class="brand-mark">K</span><span class="brand-text">Kostanyan Learning Center</span></a><p>Learning support and educational activities for students in grades 1–6.</p></div>
+      <div class="footer-contact"><strong>Address</strong><p>Armenia, Hovtashen village, Kamo 6 Street, house 6.</p></div>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const source = new URLSearchParams(window.location.search).get('from');
+      if (!source || !/^[a-z0-9-]+\.html$/i.test(source)) return;
+      const target = `../ru/${source}`;
+      document.querySelector('#original-language-link').href = target;
+      document.querySelector('#original-article-link').href = target;
+    })();
+  </script>
+</body>
+</html>

@@ -19,6 +19,7 @@ const translations = {
     "navApproach": "How lessons work",
     "navTeacher": "Teacher",
     "navReviews": "Reviews",
+    "navBlog": "Blog",
     "headerCta": "Trial lesson",
     "heroEyebrow": "For students in grades 1–6",
     "heroTitle": "Helping children learn with interest and confidence",
@@ -129,7 +130,7 @@ const translations = {
     gallery2Text: "Тренируем внимание с помощью игровых упражнений.",
     gallery3Text: "Закрепляем школьные темы с помощью заданий и упражнений.",
     gallery4Text: "Здесь можно будет посмотреть короткий фрагмент занятия.",
-    navHelp: 'Кому помогаем', navApproach: 'Как проходят занятия', navTeacher: 'Преподаватель', navReviews: 'Отзывы', headerCta: 'Пробное занятие',
+    navHelp: 'Кому помогаем', navApproach: 'Как проходят занятия', navTeacher: 'Преподаватель', navReviews: 'Отзывы', navBlog: 'Блог', headerCta: 'Пробное занятие',
     heroEyebrow: 'Для школьников 1–6 классов', heroTitle: 'Помогаем ребёнку учиться с интересом и уверенностью', heroDescription: 'Разбираем школьный материал, помогаем с домашними заданиями и развиваем важные навыки через индивидуальный подход и развивающие игры.', heroCta: 'Записаться бесплатно на 90 минут', heroNote: 'После знакомства Анушик Костанян подберёт подходящий формат и план работы для ребёнка.', heroVisualTitle: 'Реальные занятия, материалы и развивающие игры', heroVisualNote: 'Здесь будет реальная фотография с занятия.', gradeBadge: '1–6 класс', modeBadge: 'Онлайн + офлайн',
     formatIndividual: 'Индивидуально', formatGroup: 'В группе', formatOnline: 'Онлайн', formatOffline: 'Офлайн',
     helpEyebrow: 'С чем мы помогаем', helpTitle: 'Когда ребёнку нужна дополнительная поддержка', helpIntro: 'Учитель помогает понять, где именно ребёнку сложно, и выстраивает занятия под его текущие учебные потребности.', help1Title: 'Не успевает с домашними заданиями', help1Text: 'Помогаем спокойно разобрать задания и понять последовательность действий.', help2Title: 'Хочется увереннее разбираться в школьных темах', help2Text: 'Разбираем материал в удобном темпе, объясняем понятным языком и закрепляем на примерах.', help3Title: 'Трудно ясно выражать мысли', help3Text: 'Во время занятий развиваем грамотную речь, понимание заданий и уверенное выражение мыслей в рамках учебной работы.', help4Title: 'Нужно больше внимания и практики', help4Text: 'Чередуем учебные задачи с упражнениями и развивающими играми, чтобы ребёнку было легче включаться в процесс.',
@@ -157,7 +158,7 @@ const translations = {
     gallery2Text: "Մարզում ենք ուշադրությունը խաղային վարժությունների միջոցով։",
     gallery3Text: "Ամրապնդում ենք դպրոցական թեմաները առաջադրանքների և վարժությունների միջոցով։",
     gallery4Text: "Այստեղ հնարավոր կլինի դիտել դասի կարճ հատված։",
-    navHelp: 'Ում ենք օգնում', navApproach: 'Ինչպես են անցնում դասերը', navTeacher: 'Դասավանդող', navReviews: 'Կարծիքներ', headerCta: 'Փորձնական դաս',
+    navHelp: 'Ում ենք օգնում', navApproach: 'Ինչպես են անցնում դասերը', navTeacher: 'Դասավանդող', navReviews: 'Կարծիքներ', navBlog: 'Բլոգ', headerCta: 'Փորձնական դաս',
     heroEyebrow: '1–6-րդ դասարանների աշակերտների համար', heroTitle: 'Օգնում ենք երեխային սովորել հետաքրքրությամբ և վստահությամբ', heroDescription: 'Բացատրում ենք դպրոցական նյութը, օգնում տնային առաջադրանքների հարցում և զարգացնում կարևոր հմտությունները անհատական մոտեցմամբ ու զարգացնող խաղերով։', heroCta: 'Գրանցվել անվճար 40 րոպեանոց դասին', heroNote: 'Ծանոթացումից հետո Անուշիկ Կոստանյանը կառաջարկի երեխային համապատասխան ձևաչափ և աշխատանքի մոտեցում։', heroVisualTitle: 'Իրական դասեր, նյութեր և զարգացնող խաղեր', heroVisualNote: 'Այստեղ կլինի իրական լուսանկար դասից։', gradeBadge: '1–6-րդ դասարան', modeBadge: 'Առցանց + առկա',
     formatIndividual: 'Անհատական', formatGroup: 'Խմբային', formatOnline: 'Առցանց', formatOffline: 'Առկա',
     helpEyebrow: 'Ինչով ենք օգնում', helpTitle: 'Երբ երեխային լրացուցիչ աջակցություն է պետք', helpIntro: 'Դասավանդողը հասկանում է, թե որտեղ է երեխան դժվարանում, և դասերը կառուցում է նրա ընթացիկ ուսումնական կարիքների շուրջ։', help1Title: 'Չի հասցնում տնային առաջադրանքները', help1Text: 'Օգնում ենք հանգիստ հասկանալ առաջադրանքը և քայլերի հերթականությունը։', help2Title: 'Դպրոցական թեմաներում ավելի վստահ կողմնորոշվելու համար', help2Text: 'Նյութը բացատրում ենք երեխային հարմար տեմպով, պարզ լեզվով և ամրապնդում հասկանալի օրինակներով։', help3Title: 'Դժվար է հստակ արտահայտել մտքերը', help3Text: 'Դասերի ընթացքում զարգացնում ենք գրագետ խոսքը, առաջադրանքների ըմբռնումը և մտքերը վստահ արտահայտելու կարողությունը՝ ուսումնական աշխատանքի շրջանակում։', help4Title: 'Ավելի շատ ուշադրություն և փորձ է պետք', help4Text: 'Ուսումնական առաջադրանքները համադրում ենք վարժությունների և զարգացնող խաղերի հետ։',
@@ -210,7 +211,118 @@ Object.assign(translations.ru, {phoneInputHint: "Только армянский
 Object.assign(translations.hy, {phoneInputHint: "Միայն հայկական համար՝ 0-ով սկսվող 9 թվանշան", invalidArmenianPhone: "Մուտքագրեք հայկական համար՝ 0-ով սկսվող 9 թվանշան։"});
 Object.assign(translations.en, {phoneInputHint: "Armenian numbers only: 9 digits starting with 0", invalidArmenianPhone: "Enter an Armenian number: 9 digits starting with 0."});
 
+Object.assign(translations.ru, {
+  blogPageTitle: "Блог — Kostanyan Learning Center",
+  blogEyebrow: "Полезные материалы для родителей",
+  blogTitle: "Блог о поддержке ребёнка в учёбе",
+  blogIntro: "Здесь будут появляться проверенные материалы о школьной программе, домашних заданиях, внимании, самостоятельности и выборе формата занятий.",
+  blogEmptyTitle: "Статьи готовятся",
+  blogEmptyText: "Мы не публикуем незавершённые или неподтверждённые материалы. Первая статья появится здесь после подготовки и проверки.",
+  blogEmptyNote: "Пока можно познакомиться с подходом центра и записаться на пробное занятие.",
+  blogHomeLink: "Познакомиться с центром →",
+  blogTrialLink: "Записаться на пробное занятие",
+  previewPageTitle: "Предпросмотр статьи — Kostanyan Learning Center",
+  previewBanner: "Тестовый предпросмотр · не опубликованная экспертная статья",
+  previewEyebrow: "Шаблон статьи",
+  previewTitle: "Как будет выглядеть материал в блоге",
+  previewLead: "Эта страница проверяет оформление будущих статей. Текст ниже описывает структуру шаблона и не содержит профессиональных рекомендаций.",
+  previewMeta: "Редакционный макет",
+  previewSection1: "Короткий ответ на вопрос родителя",
+  previewSection1Text: "В опубликованной статье здесь будет краткое и понятное объяснение, которое помогает читателю быстро сориентироваться в теме.",
+  previewCalloutTitle: "Важно",
+  previewCalloutText: "Материалы о развитии речи, здоровье или психологическом состоянии ребёнка будут опубликованы только после проверки профильным специалистом.",
+  previewSection2: "Подробное объяснение и практические шаги",
+  previewSection2Text: "Основная часть будет разделена на небольшие смысловые блоки: возможные ситуации, действия родителя, границы самостоятельной помощи и случаи, когда нужна консультация специалиста.",
+  previewSection3: "Связь с занятиями центра",
+  previewSection3Text: "В финале статья сможет аккуратно предложить подходящую услугу центра без обещаний результата и без подмены полезного материала рекламой.",
+  backToBlog: "← Вернуться в блог",
+  previewTrialLink: "Перейти к пробному занятию"
+});
+Object.assign(translations.hy, {
+  blogPageTitle: "Բլոգ — Kostanyan Learning Center",
+  blogEyebrow: "Օգտակար նյութեր ծնողների համար",
+  blogTitle: "Բլոգ՝ երեխային ուսման մեջ աջակցելու մասին",
+  blogIntro: "Այստեղ կհրապարակվեն ստուգված նյութեր դպրոցական ծրագրի, տնային առաջադրանքների, ուշադրության, ինքնուրույնության և դասերի ձևաչափի ընտրության մասին։",
+  blogEmptyTitle: "Հոդվածները պատրաստվում են",
+  blogEmptyText: "Մենք չենք հրապարակում անավարտ կամ չստուգված նյութեր։ Առաջին հոդվածը կհայտնվի այստեղ պատրաստումից և ստուգումից հետո։",
+  blogEmptyNote: "Մինչ այդ կարող եք ծանոթանալ կենտրոնի մոտեցմանը և գրանցվել փորձնական դասի։",
+  blogHomeLink: "Ծանոթանալ կենտրոնին →",
+  blogTrialLink: "Գրանցվել փորձնական դասի",
+  previewPageTitle: "Հոդվածի նախադիտում — Kostanyan Learning Center",
+  previewBanner: "Փորձնական նախադիտում · հրապարակված փորձագիտական հոդված չէ",
+  previewEyebrow: "Հոդվածի ձևանմուշ",
+  previewTitle: "Ինչ տեսք կունենա բլոգի նյութը",
+  previewLead: "Այս էջը նախատեսված է ապագա հոդվածների ձևավորումը ստուգելու համար։ Ստորև ներկայացված տեքստը նկարագրում է ձևանմուշը և մասնագիտական խորհուրդներ չի պարունակում։",
+  previewMeta: "Խմբագրական մակետ",
+  previewSection1: "Ծնողի հարցի կարճ պատասխանը",
+  previewSection1Text: "Հրապարակված հոդվածում այստեղ կլինի կարճ և հասկանալի բացատրություն, որն օգնում է ընթերցողին արագ կողմնորոշվել թեմայում։",
+  previewCalloutTitle: "Կարևոր է",
+  previewCalloutText: "Խոսքի զարգացմանը, առողջությանը կամ երեխայի հոգեբանական վիճակին վերաբերող նյութերը կհրապարակվեն միայն համապատասխան մասնագետի ստուգումից հետո։",
+  previewSection2: "Մանրամասն բացատրություն և գործնական քայլեր",
+  previewSection2Text: "Հիմնական մասը կբաժանվի փոքր իմաստային բաժինների՝ հնարավոր իրավիճակներ, ծնողի քայլեր, ինքնուրույն օգնության սահմաններ և մասնագետի խորհրդատվության անհրաժեշտ դեպքեր։",
+  previewSection3: "Կապը կենտրոնի դասերի հետ",
+  previewSection3Text: "Վերջում հոդվածը կարող է նրբորեն առաջարկել կենտրոնի համապատասխան ծառայությունը՝ առանց արդյունք խոստանալու և օգտակար նյութը գովազդով փոխարինելու։",
+  backToBlog: "← Վերադառնալ բլոգ",
+  previewTrialLink: "Անցնել փորձնական դասին"
+});
+Object.assign(translations.en, {
+  blogPageTitle: "Blog — Kostanyan Learning Center",
+  blogEyebrow: "Helpful resources for parents",
+  blogTitle: "A blog about supporting children with learning",
+  blogIntro: "This is where we will publish reviewed resources about schoolwork, homework, attention, independence and choosing a lesson format.",
+  blogEmptyTitle: "Articles are being prepared",
+  blogEmptyText: "We do not publish unfinished or unreviewed material. The first article will appear here after it has been prepared and checked.",
+  blogEmptyNote: "For now, you can learn about the center's approach or book a trial lesson.",
+  blogHomeLink: "Learn about the center →",
+  blogTrialLink: "Book a trial lesson",
+  previewPageTitle: "Article preview — Kostanyan Learning Center",
+  previewBanner: "Test preview · not a published expert article",
+  previewEyebrow: "Article template",
+  previewTitle: "How a blog article will look",
+  previewLead: "This page is used to check the design of future articles. The text below describes the template and does not contain professional advice.",
+  previewMeta: "Editorial mockup",
+  previewSection1: "A short answer to the parent's question",
+  previewSection1Text: "In a published article, this area will provide a concise explanation that helps the reader understand the topic quickly.",
+  previewCalloutTitle: "Important",
+  previewCalloutText: "Resources about speech development, health or a child's psychological wellbeing will only be published after review by a relevant specialist.",
+  previewSection2: "A detailed explanation and practical steps",
+  previewSection2Text: "The main section will be split into focused blocks: possible situations, actions for parents, the limits of help at home and when to consult a specialist.",
+  previewSection3: "How the topic connects to lessons",
+  previewSection3Text: "The conclusion may gently suggest a relevant center service without promising results or replacing useful information with advertising.",
+  backToBlog: "← Back to the blog",
+  previewTrialLink: "Go to the trial lesson"
+});
+
+Object.assign(translations.ru, {
+  blogArticlesTitle: "Новые статьи",
+  memoryTag: "Память и учёба",
+  memoryCardTitle: "Как помочь ребёнку лучше запоминать учебный материал",
+  memoryCardText: "Понятные способы повторения, вопросы вместо перечитывания и роль режима без обещаний «идеальной памяти».",
+  developmentTag: "Развитие ребёнка",
+  developmentCardTitle: "Как развивается ребёнок в школьные годы",
+  developmentCardText: "Почему важны не только оценки, но и самостоятельность, речь, эмоции, общение и умение планировать.",
+  attentionTag: "Внимание",
+  attentionCardTitle: "Как помочь ребёнку сосредоточиться без давления",
+  attentionCardText: "Как организовать задания, уменьшить отвлекающие факторы и поддерживать внимание спокойными способами.",
+  readArticle: "Читать статью →"
+});
+Object.assign(translations.en, {
+  blogArticlesTitle: "New articles",
+  memoryTag: "Memory and learning",
+  memoryCardTitle: "How to help a child remember school material",
+  memoryCardText: "Practical ways to review, use questions instead of rereading and support memory without unrealistic promises.",
+  developmentTag: "Child development",
+  developmentCardTitle: "How children develop during the school years",
+  developmentCardText: "Why progress includes independence, communication, emotions, relationships and planning—not only grades.",
+  attentionTag: "Attention",
+  attentionCardTitle: "How to help a child focus without pressure",
+  attentionCardText: "Ways to organise tasks, reduce distractions and support attention through calm, manageable routines.",
+  readArticle: "Read the article →"
+});
+
 let currentLanguage = 'ru';
+const localizedRouteMatch = window.location.pathname.match(/\/(ru|en)(?:\/|$)/);
+const localizedRouteLanguage = localizedRouteMatch?.[1] || '';
 const form = document.querySelector('#trial-form');
 const status = document.querySelector('#form-status');
 const submitButton = form?.querySelector('.submit-button');
@@ -349,18 +461,23 @@ function applyLanguage(lang) {
   currentLanguage = lang;
   document.querySelectorAll('[data-page-link]').forEach((link) => {
     const url = new URL(link.getAttribute('href'), window.location.href);
-    url.searchParams.set('lang', lang);
+    if (localizedRouteLanguage) url.searchParams.delete('lang');
+    else url.searchParams.set('lang', lang);
     link.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
   });
-  if (document.querySelector('.gallery-grid')) {
-    document.title = translations[lang].galleryTitle + ' — Kostanyan Learning Center';
-  }
+  const pageType = document.body.dataset.page;
+  if (pageType === 'gallery') document.title = translations[lang].galleryTitle + ' — Kostanyan Learning Center';
+  if (pageType === 'blog') document.title = translations[lang].blogPageTitle;
+  if (pageType === 'article-preview') document.title = translations[lang].previewPageTitle;
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
     el.setAttribute('aria-label', translations[lang][el.dataset.i18nAriaLabel]);
   });
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = translations[lang][document.querySelector('.gallery-grid') ? 'galleryIntro' : 'footerText'];
+  if (description) {
+    const descriptionKey = pageType === 'gallery' ? 'galleryIntro' : pageType === 'blog' ? 'blogIntro' : pageType === 'article-preview' ? 'previewLead' : 'footerText';
+    description.content = translations[lang][descriptionKey];
+  }
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;
     if (translations[lang][key]) el.textContent = translations[lang][key];
@@ -369,6 +486,9 @@ function applyLanguage(lang) {
   document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
     const key = el.dataset.i18nPlaceholder;
     if (translations[lang][key]) el.placeholder = translations[lang][key];
+  });
+  document.querySelectorAll('[data-ru-href][data-en-href]').forEach((link) => {
+    link.setAttribute('href', lang === 'en' ? link.dataset.enHref : link.dataset.ruHref);
   });
   document.querySelectorAll('.lang-button').forEach((button) => {
     button.classList.toggle('is-active', button.dataset.lang === lang);
@@ -381,10 +501,29 @@ function applyLanguage(lang) {
     status.classList.remove('is-visible');
   }
   validateArmenianPhone();
+  document.body.classList.remove('is-localizing');
 }
 
 document.querySelectorAll('.lang-button').forEach((button) => {
-  button.addEventListener('click', () => applyLanguage(button.dataset.lang));
+  button.addEventListener('click', () => {
+    const targetLanguage = button.dataset.lang;
+    if (!localizedRouteLanguage || !['ru', 'en'].includes(targetLanguage)) {
+      applyLanguage(targetLanguage);
+      return;
+    }
+
+    const explicitTarget = document.body.dataset[`${targetLanguage}Path`];
+    if (explicitTarget) {
+      window.location.href = `${explicitTarget}${window.location.hash}`;
+      return;
+    }
+
+    const pageFile = window.location.pathname.split('/').pop() || 'index.html';
+    const targetFile = targetLanguage === 'en' && document.body.dataset.enAvailable === 'false'
+      ? `translation-unavailable.html?from=${encodeURIComponent(pageFile)}`
+      : pageFile;
+    window.location.href = `../${targetLanguage}/${targetFile}${window.location.hash}`;
+  });
 });
 
 if (form && status && submitButton) {
@@ -458,4 +597,7 @@ if (form && status && submitButton) {
 }
 
 const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
-applyLanguage(['ru', 'hy', 'en'].includes(requestedLanguage) ? requestedLanguage : 'ru');
+const initialLanguage = localizedRouteLanguage
+  || document.body.dataset.initialLang
+  || (['ru', 'hy', 'en'].includes(requestedLanguage) ? requestedLanguage : 'ru');
+applyLanguage(initialLanguage);
