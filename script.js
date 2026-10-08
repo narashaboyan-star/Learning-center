@@ -325,10 +325,52 @@ Object.assign(translations.en, {
   readinessCardText: "Calm guidance on communication, independence, attention, social skills and playful preparation without pressure.",
   readArticle: "Read the article →"
 });
+Object.assign(translations.hy, {
+  blogArticlesTitle: "Նոր հոդվածներ",
+  memoryTag: "Հիշողություն և ուսում",
+  memoryCardTitle: "Ինչպես օգնել երեխային ավելի լավ հիշել ուսումնական նյութը",
+  memoryCardText: "Կրկնության պարզ եղանակներ, հարցեր՝ բազմակի ընթերցման փոխարեն, և հանգիստ ռեժիմ՝ առանց «կատարյալ հիշողության» խոստումների։",
+  developmentTag: "Երեխայի զարգացում",
+  developmentCardTitle: "Ինչպես է երեխան զարգանում դպրոցական տարիներին",
+  developmentCardText: "Ինչու են կարևոր ոչ միայն գնահատականները, այլև ինքնուրույնությունը, խոսքը, հույզերը, շփումն ու պլանավորումը։",
+  attentionTag: "Ուշադրություն",
+  attentionCardTitle: "Ինչպես օգնել երեխային կենտրոնանալ առանց ճնշման",
+  attentionCardText: "Ինչպես կազմակերպել առաջադրանքները, նվազեցնել շեղող գործոնները և հանգիստ ձևերով աջակցել ուշադրությանը։",
+  readinessTag: "Դպրոցին պատրաստվելը",
+  readinessCardTitle: "Ինչպես հասկանալ՝ արդյոք երեխան պատրաստ է դպրոցին",
+  readinessCardText: "Հանգիստ կողմնորոշիչներ՝ խոսք, ինքնուրույնություն, ուշադրություն, շփում և խաղային պատրաստություն՝ առանց ճնշման։",
+  readArticle: "Կարդալ հոդվածը →"
+});
 
 let currentLanguage = 'ru';
-const localizedRouteMatch = window.location.pathname.match(/\/(ru|en)(?:\/|$)/);
+const localizedRouteMatch = window.location.pathname.match(/\/(ru|hy|en)(?:\/|$)/);
 const localizedRouteLanguage = localizedRouteMatch?.[1] || '';
+const armenianArticleRoutes = {
+  '/ru/articles/pamyat-i-ucheba.html': '/hy/articles/hishoghutyun-ev-usum.html',
+  '/en/articles/memory-and-learning.html': '/hy/articles/hishoghutyun-ev-usum.html',
+  '/ru/articles/razvitie-shkolnika.html': '/hy/articles/dprotsakani-zargacumy.html',
+  '/en/articles/child-development-school-years.html': '/hy/articles/dprotsakani-zargacumy.html',
+  '/ru/articles/vnimanie-bez-davleniya.html': '/hy/articles/ushadrutyun-aranc-chshman.html',
+  '/en/articles/attention-without-pressure.html': '/hy/articles/ushadrutyun-aranc-chshman.html',
+  '/ru/articles/gotovnost-k-shkole.html': '/hy/articles/dproci-patrastakamutyun.html',
+  '/en/articles/school-readiness.html': '/hy/articles/dproci-patrastakamutyun.html'
+};
+
+const armenianArticleRoute = armenianArticleRoutes[window.location.pathname];
+if (armenianArticleRoute) {
+  document.body.dataset.hyPath = armenianArticleRoute;
+  document.querySelectorAll('.language-switch').forEach((switcher) => {
+    if (switcher.querySelector('[data-lang="hy"]')) return;
+    const armenianButton = document.createElement('button');
+    armenianButton.type = 'button';
+    armenianButton.className = 'lang-button';
+    armenianButton.dataset.lang = 'hy';
+    armenianButton.setAttribute('aria-label', 'Հայերեն');
+    armenianButton.title = 'Հայերեն';
+    armenianButton.textContent = 'ՀԱՅ';
+    switcher.querySelector('[data-lang="en"]')?.before(armenianButton);
+  });
+}
 const form = document.querySelector('#trial-form');
 const status = document.querySelector('#form-status');
 const submitButton = form?.querySelector('.submit-button');
@@ -494,7 +536,8 @@ function applyLanguage(lang) {
     if (translations[lang][key]) el.placeholder = translations[lang][key];
   });
   document.querySelectorAll('[data-ru-href][data-en-href]').forEach((link) => {
-    link.setAttribute('href', lang === 'en' ? link.dataset.enHref : link.dataset.ruHref);
+    const localizedHref = link.dataset[`${lang}Href`];
+    if (localizedHref) link.setAttribute('href', localizedHref);
   });
   document.querySelectorAll('.lang-button').forEach((button) => {
     button.classList.toggle('is-active', button.dataset.lang === lang);
@@ -513,7 +556,7 @@ function applyLanguage(lang) {
 document.querySelectorAll('.lang-button').forEach((button) => {
   button.addEventListener('click', () => {
     const targetLanguage = button.dataset.lang;
-    if (!localizedRouteLanguage || !['ru', 'en'].includes(targetLanguage)) {
+    if (!localizedRouteLanguage || !['ru', 'hy', 'en'].includes(targetLanguage)) {
       applyLanguage(targetLanguage);
       return;
     }
