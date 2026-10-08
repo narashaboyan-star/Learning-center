@@ -304,6 +304,9 @@ Object.assign(translations.ru, {
   attentionTag: "Внимание",
   attentionCardTitle: "Как помочь ребёнку сосредоточиться без давления",
   attentionCardText: "Как организовать задания, уменьшить отвлекающие факторы и поддерживать внимание спокойными способами.",
+  readinessTag: "Подготовка к школе",
+  readinessCardTitle: "Как понять, готов ли ребёнок к школе",
+  readinessCardText: "Спокойные ориентиры: речь, самостоятельность, внимание, общение и игровые способы подготовки без давления.",
   readArticle: "Читать статью →"
 });
 Object.assign(translations.en, {
@@ -317,6 +320,9 @@ Object.assign(translations.en, {
   attentionTag: "Attention",
   attentionCardTitle: "How to help a child focus without pressure",
   attentionCardText: "Ways to organise tasks, reduce distractions and support attention through calm, manageable routines.",
+  readinessTag: "School preparation",
+  readinessCardTitle: "How to tell whether a child is ready for school",
+  readinessCardText: "Calm guidance on communication, independence, attention, social skills and playful preparation without pressure.",
   readArticle: "Read the article →"
 });
 
