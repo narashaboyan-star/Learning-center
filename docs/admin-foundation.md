@@ -42,11 +42,14 @@ The application input contract is the current public form contract:
 
 Protected admin APIs live below `/api/admin/` and return HTTP `401` with `{"ok":false,"code":"authentication_required"}` without a valid owner session. Protected pages live below `/admin/` and redirect unauthenticated visitors to `/admin/login.html`.
 
+Independent features plug into the common server without editing it. `features/services-routes.js` and `features/applications-routes.js` each export an array of `{ method, path, access, handle }`. `access` is `public` or `owner`; every `/api/admin/*` route is rejected at startup unless it is owner-only. Handlers receive the database, authenticated owner, parsed URL, a bounded JSON reader, and a JSON response helper.
+
 Common files have one owner and are not edited independently by A or B:
 
 - `db/migrations/**`
 - `server/config.js`, `server/database.js`, `server/migrations.js`
 - `server/auth.js`, `server/contracts.js`, `server/http-app.js`
+- `server/feature-routes.js`
 - `admin/login.*`, `admin/shared.css`, `admin/index.html`
 
 Task A owns service repository/API, `admin/services.*`, and public service-data binding. Task B owns application repository/API, `admin/applications.*`, the public submission binding, and Telegram delivery. If either task needs a schema or shared-contract change, it reports the request to the common owner instead of changing shared files.

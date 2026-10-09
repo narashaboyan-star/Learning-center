@@ -17,7 +17,14 @@ async function stop(server, app) {
 test('foundation migrates, protects admin and survives a restart', async () => {
   const databasePath = uniqueDatabasePath();
   const config = loadConfig({ databasePath, port: 0, sessionHours: 1 });
-  let app = createHttpApp(config);
+  let app = createHttpApp(config, {
+    featureRoutes: [{
+      method: 'GET',
+      path: '/api/admin/probe',
+      access: 'owner',
+      handle({ sendJson }) { return sendJson(200, { ok: true }); },
+    }],
+  });
   createOwner(app.database, 'owner@example.test', 'testing-password-123');
 
   const services = app.database.prepare('SELECT service_key FROM services ORDER BY sort_order').all();
@@ -30,6 +37,8 @@ test('foundation migrates, protects admin and survives a restart', async () => {
   const blockedApi = await fetch(`${baseUrl}/api/admin/session`);
   assert.equal(blockedApi.status, 401);
   assert.deepEqual(await blockedApi.json(), { ok: false, code: 'authentication_required' });
+  const blockedFeature = await fetch(`${baseUrl}/api/admin/probe`);
+  assert.equal(blockedFeature.status, 401);
 
   const blockedPage = await fetch(`${baseUrl}/admin/`, { redirect: 'manual' });
   assert.equal(blockedPage.status, 302);
@@ -54,6 +63,8 @@ test('foundation migrates, protects admin and survives a restart', async () => {
   const allowed = await fetch(`${baseUrl}/api/admin/session`, { headers: { Cookie: cookie } });
   assert.equal(allowed.status, 200);
   assert.equal((await allowed.json()).owner.email, 'owner@example.test');
+  const allowedFeature = await fetch(`${baseUrl}/api/admin/probe`, { headers: { Cookie: cookie } });
+  assert.equal(allowedFeature.status, 200);
   const allowedPage = await fetch(`${baseUrl}/admin/`, { headers: { Cookie: cookie } });
   assert.equal(allowedPage.status, 200);
   assert.match(await allowedPage.text(), /Общая защищённая основа готова/);

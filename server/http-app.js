@@ -14,6 +14,7 @@ const {
   sessionCookie,
 } = require('./auth');
 const { openDatabase } = require('./database');
+const { loadFeatureRoutes, validateFeatureRoutes } = require('./feature-routes');
 const { applyMigrations } = require('./migrations');
 const { seedServices } = require('./seed-data');
 
@@ -68,6 +69,7 @@ function safeStaticPath(projectRoot, pathname) {
 
 function createHttpApp(config, dependencies = {}) {
   const deliverPasswordReset = dependencies.deliverPasswordReset || (async () => {});
+  const featureRoutes = validateFeatureRoutes(dependencies.featureRoutes || loadFeatureRoutes(config.projectRoot));
   const database = openDatabase(config.databasePath);
   applyMigrations(database, path.join(config.projectRoot, 'db', 'migrations'));
   seedServices(database);
@@ -118,6 +120,24 @@ function createHttpApp(config, dependencies = {}) {
         return changed
           ? sendJson(response, 200, { ok: true })
           : sendJson(response, 400, { ok: false, code: 'invalid_or_expired_token' });
+      }
+
+      const featureRoute = featureRoutes.find((route) => route.method === request.method && route.path === pathname);
+      if (featureRoute) {
+        const owner = requestOwner(database, request);
+        if (featureRoute.access === 'owner' && !owner) {
+          return sendJson(response, 401, { ok: false, code: 'authentication_required' });
+        }
+        return featureRoute.handle({
+          config,
+          database,
+          owner,
+          readJson: () => readJson(request),
+          request,
+          response,
+          sendJson: (status, body, headers) => sendJson(response, status, body, headers),
+          url,
+        });
       }
 
       if (pathname.startsWith('/api/admin/')) {
