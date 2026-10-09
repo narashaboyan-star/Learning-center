@@ -52,7 +52,7 @@ Common files have one owner and are not edited independently by A or B:
 - `server/feature-routes.js`
 - `admin/login.*`, `admin/shared.css`, `admin/index.html`
 
-Task A owns service repository/API, `admin/services.*`, and public service-data binding. Task B owns application repository/API, `admin/applications.*`, the public submission binding, and Telegram delivery. If either task needs a schema or shared-contract change, it reports the request to the common owner instead of changing shared files.
+Task A owns `features/services-routes.js`, `services.js`, `admin/services.*`, and its tests. Task B owns `features/applications-routes.js`, `applications.js`, `admin/applications.*`, `api/telegram.js`, and its tests. The three current home pages already load the two reserved root scripts, so neither task edits shared HTML. If either task needs a schema or shared-contract change, it reports the request to the common owner instead of changing shared files.
 
 ## Local test setup
 
