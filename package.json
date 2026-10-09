@@ -1,0 +1,15 @@
+{
+  "name": "kostanyan-learning-center",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static learning-center site with an isolated local admin foundation",
+  "scripts": {
+    "dev:test": "APP_ENV=test node server/dev-server.js",
+    "db:migrate:test": "APP_ENV=test node server/migrate.js",
+    "db:seed:test": "APP_ENV=test node server/seed-local.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}
