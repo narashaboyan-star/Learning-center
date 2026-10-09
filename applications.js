@@ -1,1 +1,3 @@
-// Reserved integration seam for task B. Intentionally has no behavior in the foundation.
+// The existing form submission remains owned by script.js.
+// This integration seam intentionally adds no second submit listener.
+window.KostanyanApplications = Object.freeze({ formSubmissionOwner: 'script.js' });

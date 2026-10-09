@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Заявки — Kostanyan Learning Center</title>
+  <link rel="stylesheet" href="/admin/shared.css">
+  <style>
+    .applications-layout { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(320px, 1.2fr); gap: 20px; }
+    .application-list { display: grid; gap: 10px; margin-top: 18px; }
+    .application-row { width: 100%; text-align: left; background: #eef3fc; color: #24324a; }
+    .application-row[aria-current="true"] { outline: 3px solid #9bb7ee; }
+    .application-row small { display: block; margin-top: 5px; font-weight: 400; }
+    .application-details dl { display: grid; grid-template-columns: minmax(120px, .4fr) 1fr; gap: 10px 16px; }
+    .application-details dt { font-weight: 700; }
+    .application-details dd { margin: 0; overflow-wrap: anywhere; }
+    .application-details ul { padding-left: 20px; }
+    @media (max-width: 760px) { .applications-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="admin-shell">
+    <p><a class="admin-link secondary" href="/admin/">← Админка</a></p>
+    <div class="applications-layout">
+      <section class="admin-card" aria-labelledby="applications-title">
+        <h1 id="applications-title">Новые заявки</h1>
+        <p class="muted">До 200 последних заявок. Статусы не используются.</p>
+        <p class="message" id="applications-message" role="status"></p>
+        <div class="application-list" id="applications-list"></div>
+      </section>
+      <section class="admin-card application-details" aria-labelledby="details-title">
+        <h2 id="details-title">Детали заявки</h2>
+        <div id="application-details"><p class="muted">Выберите заявку в списке.</p></div>
+      </section>
+    </div>
+  </main>
+  <script src="/admin/applications.js" defer></script>
+</body>
+</html>
