@@ -213,6 +213,9 @@ Object.assign(translations.en, {phoneInputHint: "Armenian numbers only: 9 digits
 Object.assign(translations.ru, {navAccount: "Мои заявки"});
 Object.assign(translations.hy, {navAccount: "Իմ հայտերը"});
 Object.assign(translations.en, {navAccount: "My applications"});
+Object.assign(translations.ru, {accountShortcut: "Посмотреть мои заявки →"});
+Object.assign(translations.hy, {accountShortcut: "Դիտել իմ հայտերը →"});
+Object.assign(translations.en, {accountShortcut: "View my applications →"});
 
 Object.assign(translations.ru, {
   blogPageTitle: "Блог — Kostanyan Learning Center",

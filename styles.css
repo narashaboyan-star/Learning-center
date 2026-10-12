@@ -1191,6 +1191,7 @@ h3 {
 
 /* Gallery uses the existing palette and shared components. */
 .gallery-link { display: block; width: fit-content; }
+.account-shortcut { margin-top: 12px; }
 .gallery-back { margin: 0 0 32px; }
 .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .gallery-card { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-soft); }
