@@ -5,6 +5,13 @@ const ITEM_SPECS = Object.freeze([
   { kind: 'lesson_type', key(application) { return application.lessonType; } },
   { kind: 'mode', key(application) { return application.mode; } },
 ]);
+const APPLICATION_STATUSES = Object.freeze(['new', 'in_progress', 'completed', 'cancelled']);
+
+function priceSnapshot(application) {
+  return application.lessonType === 'group'
+    ? { amount: 15000, currency: 'AMD', period: 'month' }
+    : { amount: null, currency: 'AMD', period: 'consultation' };
+}
 
 function escapeHtml(value) {
   return String(value ?? '')
@@ -56,12 +63,17 @@ function snapshotName(database, kind, key, language) {
   return row.name;
 }
 
-function saveApplication(database, application) {
+function saveApplication(database, application, customerId = null) {
+  const price = priceSnapshot(application);
   database.exec('BEGIN IMMEDIATE;');
   try {
     const inserted = database.prepare(`
-      INSERT INTO applications (parent_name, phone, child_name, grade, help_needed, language)
-      VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO applications (
+        parent_name, phone, child_name, grade, help_needed, language,
+        customer_id, status, price_amount_snapshot, price_currency_snapshot,
+        price_period_snapshot, submission_key
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, 'new', ?, ?, ?, ?)
+      ON CONFLICT DO NOTHING
     `).run(
       application.parentName,
       application.phone,
@@ -69,7 +81,18 @@ function saveApplication(database, application) {
       application.grade,
       application.helpNeeded,
       application.language,
+      customerId,
+      price.amount,
+      price.currency,
+      price.period,
+      application.submissionKey || null,
     );
+    if (inserted.changes === 0) {
+      const existing = database.prepare('SELECT id FROM applications WHERE submission_key = ?')
+        .get(application.submissionKey);
+      database.exec('COMMIT;');
+      return { id: existing.id, created: false };
+    }
     const applicationId = Number(inserted.lastInsertRowid);
     const insertItem = database.prepare(`
       INSERT INTO application_items (application_id, item_kind, item_key, name_snapshot)
@@ -80,7 +103,7 @@ function saveApplication(database, application) {
       insertItem.run(applicationId, spec.kind, key, snapshotName(database, spec.kind, key, application.language));
     }
     database.exec('COMMIT;');
-    return applicationId;
+    return { id: applicationId, created: true };
   } catch (error) {
     database.exec('ROLLBACK;');
     throw error;
@@ -144,6 +167,12 @@ function mapApplication(row, items) {
     grade: row.grade,
     helpNeeded: row.help_needed,
     language: row.language,
+    status: row.status,
+    price: {
+      amount: row.price_amount_snapshot,
+      currency: row.price_currency_snapshot,
+      period: row.price_period_snapshot,
+    },
     telegram: {
       notifiedAt: row.telegram_notified_at,
       errorCode: row.telegram_error_code,
@@ -176,6 +205,29 @@ function applicationDetails(database, id) {
   return mapApplication(row, items);
 }
 
+function listCustomerApplications(database, customerId) {
+  return database.prepare(`
+    SELECT * FROM applications
+    WHERE customer_id = ? ORDER BY created_at DESC, id DESC LIMIT 200
+  `).all(customerId).map((row) => mapApplication(row));
+}
+
+function customerApplicationDetails(database, customerId, id) {
+  const row = database.prepare('SELECT * FROM applications WHERE id = ? AND customer_id = ?').get(id, customerId);
+  if (!row) return null;
+  const items = database.prepare(`
+    SELECT item_kind, item_key, name_snapshot, quantity
+    FROM application_items WHERE application_id = ? ORDER BY id
+  `).all(id);
+  return mapApplication(row, items);
+}
+
+function updateApplicationStatus(database, id, status) {
+  if (!APPLICATION_STATUSES.includes(status)) return null;
+  const result = database.prepare('UPDATE applications SET status = ? WHERE id = ?').run(status, id);
+  return result.changes === 1 ? applicationDetails(database, id) : null;
+}
+
 function createApplicationRoutes(overrides = {}) {
   const dependencies = {
     env: overrides.env || process.env,
@@ -186,7 +238,7 @@ function createApplicationRoutes(overrides = {}) {
       method: 'POST',
       path: '/api/telegram',
       access: 'public',
-      async handle({ database, readJson, sendJson }) {
+      async handle({ customer, database, readJson, sendJson }) {
         let application;
         try {
           application = normalizeApplication(await readJson());
@@ -197,25 +249,25 @@ function createApplicationRoutes(overrides = {}) {
             'invalid_language',
             'invalid_lesson_type',
             'invalid_mode',
+            'invalid_submission_key',
           ]);
           const code = allowed.has(error.message) ? error.message : 'invalid_request_body';
           return sendJson(400, { ok: false, code, error: 'Invalid application data' });
         }
 
-        const applicationId = saveApplication(database, application);
+        const saved = saveApplication(database, application, customer?.id || null);
+        if (!saved.created) return sendJson(200, { ok: true, duplicate: true, applicationId: saved.id });
         const delivery = await deliverTelegram(application, dependencies);
         if (!delivery.ok) {
-          recordTelegramResult(database, applicationId, delivery.code);
-          return sendJson(delivery.status, {
-            ok: false,
-            code: delivery.code,
-            error: delivery.code === 'configuration_missing'
-              ? 'Telegram delivery is not configured'
-              : 'Telegram notification was not delivered',
+          recordTelegramResult(database, saved.id, delivery.code);
+          return sendJson(202, {
+            ok: true,
+            applicationId: saved.id,
+            warning: delivery.code,
           });
         }
-        recordTelegramResult(database, applicationId);
-        return sendJson(200, { ok: true });
+        recordTelegramResult(database, saved.id);
+        return sendJson(200, { ok: true, applicationId: saved.id });
       },
     },
     {
@@ -237,6 +289,22 @@ function createApplicationRoutes(overrides = {}) {
           : sendJson(404, { ok: false, code: 'application_not_found' });
       },
     },
+    {
+      method: 'PUT',
+      path: '/api/admin/applications',
+      access: 'owner',
+      async handle({ database, readJson, sendJson }) {
+        const body = await readJson();
+        const id = Number(body.id);
+        if (!Number.isSafeInteger(id) || id < 1 || !APPLICATION_STATUSES.includes(body.status)) {
+          return sendJson(400, { ok: false, code: 'invalid_application_status_update' });
+        }
+        const application = updateApplicationStatus(database, id, body.status);
+        return application
+          ? sendJson(200, { ok: true, application })
+          : sendJson(404, { ok: false, code: 'application_not_found' });
+      },
+    },
   ];
 }
 
@@ -246,3 +314,8 @@ module.exports.createApplicationRoutes = createApplicationRoutes;
 module.exports.buildTelegramMessage = buildTelegramMessage;
 module.exports.saveApplication = saveApplication;
 module.exports.applicationDetails = applicationDetails;
+module.exports.APPLICATION_STATUSES = APPLICATION_STATUSES;
+module.exports.customerApplicationDetails = customerApplicationDetails;
+module.exports.listCustomerApplications = listCustomerApplications;
+module.exports.priceSnapshot = priceSnapshot;
+module.exports.updateApplicationStatus = updateApplicationStatus;

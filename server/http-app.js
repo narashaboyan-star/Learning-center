@@ -14,6 +14,7 @@ const {
   sessionCookie,
 } = require('./auth');
 const { openDatabase } = require('./database');
+const { customerFromRequest } = require('./customer-auth');
 const { loadFeatureRoutes, validateFeatureRoutes } = require('./feature-routes');
 const { applyMigrations } = require('./migrations');
 const { seedServices } = require('./seed-data');
@@ -83,7 +84,7 @@ function createHttpApp(config, dependencies = {}) {
         return sendJson(response, 200, { ok: true, environment: config.environment });
       }
 
-      if (request.method === 'POST' && !isSameOrigin(request)) {
+      if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(request.method) && !isSameOrigin(request)) {
         return sendJson(response, 403, { ok: false, code: 'origin_rejected' });
       }
 
@@ -125,13 +126,18 @@ function createHttpApp(config, dependencies = {}) {
       const featureRoute = featureRoutes.find((route) => route.method === request.method && route.path === pathname);
       if (featureRoute) {
         const owner = requestOwner(database, request);
+        const customer = customerFromRequest(database, request);
         if (featureRoute.access === 'owner' && !owner) {
           return sendJson(response, 401, { ok: false, code: 'authentication_required' });
+        }
+        if (featureRoute.access === 'customer' && !customer) {
+          return sendJson(response, 401, { ok: false, code: 'customer_authentication_required' });
         }
         return featureRoute.handle({
           config,
           database,
           owner,
+          customer,
           readJson: () => readJson(request),
           request,
           response,

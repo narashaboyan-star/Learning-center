@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Личный кабинет родителя Kostanyan Learning Center">
+  <title>Мои заявки — Kostanyan Learning Center</title>
+  <link rel="stylesheet" href="styles.css?v=20260928-1">
+  <link rel="stylesheet" href="account.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" id="home-link" href="/index.html"><span class="brand-mark">K</span><span class="brand-text">Kostanyan Learning Center</span></a>
+      <div class="header-actions">
+        <div class="language-switch" aria-label="Language">
+          <button type="button" class="lang-button" data-lang="ru">РУС</button>
+          <button type="button" class="lang-button" data-lang="hy">ՀԱՅ</button>
+          <button type="button" class="lang-button" data-lang="en">ENG</button>
+        </div>
+        <a class="header-cta" id="lesson-link" href="/index.html#trial" data-text="lessonLink">Пробное занятие</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="account-main">
+    <div class="container">
+      <section class="account-hero">
+        <p class="eyebrow" data-text="eyebrow">Личный кабинет</p>
+        <h1 data-text="title">Мои заявки</h1>
+        <p data-text="intro">Вход необязателен для записи. Кабинет помогает сохранить контакт и видеть заявки, отправленные после входа.</p>
+      </section>
+
+      <p class="account-message" id="account-message" role="status" aria-live="polite"></p>
+
+      <section class="account-card login-panel" id="login-panel" hidden>
+        <h2 data-text="loginTitle">Войти через Telegram</h2>
+        <p data-text="loginText">После входа новые заявки будут доступны только вам. Телефон вводится отдельно.</p>
+        <button class="primary-cta account-button" id="login-button" type="button" data-text="loginButton">Войти через Telegram</button>
+        <p class="mock-note" id="mock-note" hidden data-text="mockNote">Локальный тест: Telegram имитируется, внешняя авторизация не выполняется.</p>
+      </section>
+
+      <div class="account-content" id="account-content" hidden>
+        <section class="account-card">
+          <div class="account-card-heading">
+            <div><p class="eyebrow" data-text="profileEyebrow">Контакт</p><h2 data-text="profileTitle">Профиль родителя</h2></div>
+            <button class="secondary-button" id="logout-button" type="button" data-text="logout">Выйти</button>
+          </div>
+          <p data-text="profileHelp">Имя и телефон подставляются в форму записи. Данные ребёнка вводятся отдельно для каждой заявки.</p>
+          <form id="profile-form">
+            <div class="field-row">
+              <label><span data-text="parentName">Имя родителя *</span><input name="parentName" maxlength="120" autocomplete="name" required></label>
+              <label><span data-text="phone">Телефон *</span><input name="phone" type="tel" inputmode="numeric" pattern="0[0-9]{8}" minlength="9" maxlength="9" autocomplete="tel" required></label>
+            </div>
+            <button class="submit-button account-button" type="submit" data-text="save">Сохранить</button>
+          </form>
+        </section>
+
+        <section class="account-card">
+          <p class="eyebrow" data-text="historyEyebrow">История</p>
+          <h2 data-text="historyTitle">Мои заявки</h2>
+          <p class="muted" data-text="historyHelp">Здесь видны только заявки, отправленные после входа.</p>
+          <div class="customer-applications" id="customer-applications"></div>
+          <div class="customer-application-details" id="customer-application-details"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="account.js" defer></script>
+</body>
+</html>

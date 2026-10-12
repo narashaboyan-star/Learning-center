@@ -1,6 +1,7 @@
 const listElement = document.querySelector('#applications-list');
 const detailsElement = document.querySelector('#application-details');
 const messageElement = document.querySelector('#applications-message');
+const statusLabels = { new: 'Новая', in_progress: 'В работе', completed: 'Завершена', cancelled: 'Отменена' };
 
 function formatDate(value) {
   if (!value) return '—';
@@ -26,6 +27,9 @@ function renderDetails(application) {
   appendDefinition(definitions, 'Нужна помощь', application.helpNeeded);
   appendDefinition(definitions, 'Язык сайта', application.language);
   appendDefinition(definitions, 'Получена', formatDate(application.createdAt));
+  appendDefinition(definitions, 'Стоимость', application.price.period === 'month' && application.price.amount === 15000
+    ? '15 000 AMD в месяц'
+    : 'После консультации');
   appendDefinition(
     definitions,
     'Telegram',
@@ -41,7 +45,33 @@ function renderDetails(application) {
     row.textContent = item.name;
     items.append(row);
   }
-  detailsElement.append(definitions, heading, items);
+  const statusHeading = document.createElement('h3');
+  statusHeading.textContent = 'Статус заявки';
+  const statusControls = document.createElement('div');
+  statusControls.className = 'service-actions';
+  const statusSelect = document.createElement('select');
+  for (const [value, label] of Object.entries(statusLabels)) {
+    const option = document.createElement('option'); option.value = value; option.textContent = label;
+    option.selected = application.status === value; statusSelect.append(option);
+  }
+  const saveStatus = document.createElement('button'); saveStatus.type = 'button'; saveStatus.textContent = 'Сохранить статус';
+  const statusMessage = document.createElement('span'); statusMessage.setAttribute('role', 'status');
+  saveStatus.addEventListener('click', async () => {
+    saveStatus.disabled = true; statusMessage.textContent = 'Сохраняем…';
+    try {
+      const response = await fetch('/api/admin/applications', {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: application.id, status: statusSelect.value }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error();
+      application.status = result.application.status; statusMessage.textContent = 'Сохранено.';
+      loadApplications();
+    } catch { statusMessage.textContent = 'Не удалось сохранить статус.'; }
+    finally { saveStatus.disabled = false; }
+  });
+  statusControls.append(statusSelect, saveStatus, statusMessage);
+  detailsElement.append(definitions, statusHeading, statusControls, heading, items);
 }
 
 async function loadDetails(id, selectedButton) {
@@ -76,7 +106,8 @@ function renderList(applications) {
     name.textContent = application.parentName;
     const note = document.createElement('small');
     note.textContent = `${application.childName} · ${formatDate(application.createdAt)}`;
-    button.append(name, note);
+    const status = document.createElement('small'); status.textContent = statusLabels[application.status] || application.status;
+    button.append(name, note, status);
     button.addEventListener('click', () => loadDetails(application.id, button));
     listElement.append(button);
   }

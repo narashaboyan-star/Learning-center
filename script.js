@@ -210,6 +210,9 @@ Object.assign(translations.en, {phoneDisplay: "+374 94 575 768", phonePlaceholde
 Object.assign(translations.ru, {phoneInputHint: "Только армянский номер: 9 цифр, начиная с 0", invalidArmenianPhone: "Введите армянский номер: 9 цифр, начиная с 0."});
 Object.assign(translations.hy, {phoneInputHint: "Միայն հայկական համար՝ 0-ով սկսվող 9 թվանշան", invalidArmenianPhone: "Մուտքագրեք հայկական համար՝ 0-ով սկսվող 9 թվանշան։"});
 Object.assign(translations.en, {phoneInputHint: "Armenian numbers only: 9 digits starting with 0", invalidArmenianPhone: "Enter an Armenian number: 9 digits starting with 0."});
+Object.assign(translations.ru, {navAccount: "Мои заявки"});
+Object.assign(translations.hy, {navAccount: "Իմ հայտերը"});
+Object.assign(translations.en, {navAccount: "My applications"});
 
 Object.assign(translations.ru, {
   blogPageTitle: "Блог — Kostanyan Learning Center",
@@ -512,6 +515,9 @@ function applyLanguage(lang) {
     if (localizedRouteLanguage) url.searchParams.delete('lang');
     else url.searchParams.set('lang', lang);
     link.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
+  });
+  document.querySelectorAll('[data-account-link]').forEach((link) => {
+    link.setAttribute('href', `/account.html?lang=${lang}`);
   });
   const pageType = document.body.dataset.page;
   if (pageType === 'gallery') document.title = translations[lang].galleryTitle + ' — Kostanyan Learning Center';

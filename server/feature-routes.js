@@ -3,6 +3,7 @@ const path = require('node:path');
 const FEATURE_FILES = Object.freeze([
   'features/services-routes.js',
   'features/applications-routes.js',
+  'features/customer-routes.js',
 ]);
 
 function loadFeatureRoutes(projectRoot) {
@@ -23,7 +24,7 @@ function validateFeatureRoutes(routes) {
   for (const route of routes) {
     if (!['GET', 'POST', 'PUT'].includes(route.method)) throw new Error('Unsupported feature route method.');
     if (!String(route.path).startsWith('/api/')) throw new Error('Feature routes must stay below /api/.');
-    if (!['public', 'owner'].includes(route.access)) throw new Error('Feature route access must be public or owner.');
+    if (!['public', 'owner', 'customer'].includes(route.access)) throw new Error('Feature route access must be public, owner or customer.');
     if (route.path.startsWith('/api/admin/') && route.access !== 'owner') {
       throw new Error('Admin feature routes must require owner access.');
     }

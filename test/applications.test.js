@@ -71,7 +71,7 @@ test('saves immutable snapshots, notifies once, protects and lists applications 
     body: JSON.stringify(payload()),
   });
   assert.equal(created.status, 200);
-  assert.deepEqual(await created.json(), { ok: true });
+  assert.deepEqual(await created.json(), { ok: true, applicationId: 1 });
   assert.equal(telegramCalls.length, 2);
   assert.match(JSON.parse(telegramCalls[1].options.body).text, /Анна &lt;script&gt;/);
 
@@ -102,13 +102,13 @@ test('saves immutable snapshots, notifies once, protects and lists applications 
   const listed = await list.json();
   assert.equal(listed.applications.length, 1);
   assert.equal(listed.applications[0].parentName, 'Анна <script>');
-  assert.equal(Object.hasOwn(listed.applications[0], 'status'), false);
+  assert.equal(listed.applications[0].status, 'new');
 
   const details = await fetch(`${baseUrl}/api/admin/applications?id=${application.id}`, { headers: { Cookie: cookie } });
   assert.equal(details.status, 200);
   const detailed = (await details.json()).application;
   assert.deepEqual(detailed.items.map((item) => item.name), ['Пробное занятие', 'Индивидуальное', 'Онлайн']);
-  assert.equal(Object.hasOwn(detailed, 'price'), false);
+  assert.deepEqual(detailed.price, { amount: null, currency: 'AMD', period: 'consultation' });
   await stop(server, app);
 });
 
@@ -127,12 +127,10 @@ test('keeps the application and a safe error code when Telegram fails', async ()
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload({ parentName: 'Failure case' })),
   });
-  assert.equal(response.status, 502);
-  assert.deepEqual(await response.json(), {
-    ok: false,
-    code: 'telegram_unavailable',
-    error: 'Telegram notification was not delivered',
-  });
+  assert.equal(response.status, 202);
+  const warning = await response.json();
+  assert.equal(warning.ok, true);
+  assert.equal(warning.warning, 'telegram_unavailable');
   const saved = app.database.prepare('SELECT telegram_error_code FROM applications').get();
   assert.equal(saved.telegram_error_code, 'telegram_unavailable');
   assert.equal(app.database.prepare('SELECT COUNT(*) AS count FROM application_items').get().count, 3);

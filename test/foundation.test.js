@@ -80,7 +80,7 @@ test('foundation migrates, protects admin and survives a restart', async () => {
     deliverPasswordReset(message) { deliveredReset = message; },
   });
   assert.equal(app.database.prepare('SELECT COUNT(*) AS count FROM applications').get().count, 1);
-  assert.equal(app.database.prepare('SELECT COUNT(*) AS count FROM schema_migrations').get().count, 1);
+  assert.equal(app.database.prepare('SELECT COUNT(*) AS count FROM schema_migrations').get().count, 2);
   server = await app.listen(0);
   baseUrl = `http://127.0.0.1:${server.address().port}`;
 
@@ -118,4 +118,5 @@ test('foundation migrates, protects admin and survives a restart', async () => {
 test('production and database paths outside .data are refused', () => {
   assert.throws(() => loadConfig({ environment: 'production' }), /test-only/);
   assert.throws(() => loadConfig({ databasePath: '/tmp/not-project-data.sqlite3' }), /must stay inside/);
+  assert.throws(() => loadConfig({ environment: 'preview', customerAuthMode: 'mock' }), /only in APP_ENV=test/);
 });
