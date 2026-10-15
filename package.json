@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "Static learning-center site with an isolated local admin foundation",
+  "dependencies": {
+    "@libsql/client": "^0.15.15"
+  },
   "scripts": {
     "dev:test": "APP_ENV=test node server/dev-server.js",
     "db:migrate:test": "APP_ENV=test node server/migrate.js",

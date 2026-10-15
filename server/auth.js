@@ -112,9 +112,11 @@ module.exports = {
   confirmPasswordReset,
   createOwner,
   createSession,
+  hashPassword,
   ownerFromToken,
   parseCookies,
   requestPasswordReset,
   revokeSession,
   sessionCookie,
+  verifyPassword,
 };
