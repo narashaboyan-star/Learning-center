@@ -758,6 +758,7 @@ h3 {
 .trial-form {
   display: grid;
   gap: 20px;
+  scroll-margin-top: 88px;
   padding: 34px;
   border-radius: var(--radius-lg);
   background: white;

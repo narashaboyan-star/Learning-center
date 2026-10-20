@@ -543,6 +543,15 @@ function closeQuickContact() {
 
 if (quickContactButton && quickContactMenu) {
   quickContactButton.addEventListener('click', () => {
+    if (window.matchMedia('(max-width: 600px)').matches && form) {
+      closeQuickContact();
+      window.history.replaceState(null, '', '#trial-form');
+      form.scrollIntoView({
+        behavior: 'instant',
+        block: 'start',
+      });
+      return;
+    }
     const willOpen = quickContactMenu.hidden;
     quickContactMenu.hidden = !willOpen;
     quickContactButton.setAttribute('aria-expanded', String(willOpen));
