@@ -505,6 +505,10 @@ if (quickContactButton && quickContactMenu) {
   });
 }
 
+Object.assign(translations.ru, {readingTag: "Чтение", readingCardTitle: "Ребёнок читает, но не понимает текст: как тренировать осмысленное чтение", readingCardText: "Как обсуждать короткие фрагменты, находить главную мысль и возвращаться к тексту за ответом.", readingCardLink: "Читать статью →"});
+Object.assign(translations.hy, {readingTag: "Ընթերցանություն", readingCardTitle: "Երեխան կարդում է, բայց չի հասկանում տեքստը", readingCardText: "Ինչպես քննարկել կարճ հատվածները և գտնել գլխավոր միտքը։ Հոդվածը հասանելի է ռուսերեն և անգլերեն։", readingCardLink: "Կարդալ ռուսերեն →"});
+Object.assign(translations.en, {readingTag: "Reading", readingCardTitle: "Your child reads the words but misses the meaning: how to build comprehension", readingCardText: "Talk about short passages, find the main idea and return to the text for support.", readingCardLink: "Read article →"});
+
 function applyLanguage(lang) {
   currentLanguage = lang;
   document.querySelectorAll('[data-page-link]').forEach((link) => {

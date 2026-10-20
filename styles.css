@@ -1714,6 +1714,7 @@ h1 { font-size: clamp(40px, 4.8vw, 64px); }
 .blog-card-memory { background: #fff0bd; }
 .blog-card-development { background: #e1ead5; }
 .blog-card-attention { background: #f8dfd8; }
+.blog-card-reading { background: #e2eef1; }
 
 .blog-card-icon {
   display: block;
