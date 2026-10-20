@@ -213,6 +213,9 @@ Object.assign(translations.en, {phoneInputHint: "Armenian numbers only: 9 digits
 Object.assign(translations.ru, {navAccount: "Мои заявки"});
 Object.assign(translations.hy, {navAccount: "Իմ հայտերը"});
 Object.assign(translations.en, {navAccount: "My applications"});
+Object.assign(translations.ru, {mobileMenuOpen: "Открыть меню", mobileMenuClose: "Закрыть меню"});
+Object.assign(translations.hy, {mobileMenuOpen: "Բացել ընտրացանկը", mobileMenuClose: "Փակել ընտրացանկը"});
+Object.assign(translations.en, {mobileMenuOpen: "Open menu", mobileMenuClose: "Close menu"});
 Object.assign(translations.ru, {accountShortcut: "Посмотреть мои заявки →"});
 Object.assign(translations.hy, {accountShortcut: "Դիտել իմ հայտերը →"});
 Object.assign(translations.en, {accountShortcut: "View my applications →"});
@@ -392,12 +395,60 @@ const quickContact = document.querySelector('.quick-contact');
 const quickContactButton = document.querySelector('.quick-contact-button');
 const quickContactMenu = document.querySelector('#quick-contact-menu');
 const quickContactClose = document.querySelector('.quick-contact-close');
+const siteHeader = document.querySelector('.site-header');
+const mainNav = siteHeader?.querySelector('.main-nav');
+const headerActions = siteHeader?.querySelector('.header-actions');
 const mainNavLinks = document.querySelectorAll('.main-nav a[href^="#"]');
 const lessonTypeInputs = document.querySelectorAll('input[name="lessonType"]');
 const modeFieldset = document.querySelector('#mode-fieldset');
 const modeInputs = document.querySelectorAll('input[name="mode"]');
 let activeNavLock = '';
 let activeNavUnlockTimer;
+
+const mobileMenuButton = mainNav && headerActions
+  ? document.createElement('button')
+  : null;
+
+function setMobileMenu(open, { restoreFocus = false } = {}) {
+  if (!mobileMenuButton || !mainNav) return;
+  mainNav.classList.toggle('is-open', open);
+  mobileMenuButton.classList.toggle('is-open', open);
+  mobileMenuButton.setAttribute('aria-expanded', String(open));
+  mobileMenuButton.setAttribute(
+    'aria-label',
+    translations[currentLanguage][open ? 'mobileMenuClose' : 'mobileMenuOpen'],
+  );
+  if (restoreFocus) mobileMenuButton.focus();
+}
+
+if (mobileMenuButton && mainNav && headerActions) {
+  if (!mainNav.id) mainNav.id = 'main-navigation';
+  mobileMenuButton.type = 'button';
+  mobileMenuButton.className = 'mobile-menu-toggle';
+  mobileMenuButton.setAttribute('aria-controls', mainNav.id);
+  mobileMenuButton.setAttribute('aria-expanded', 'false');
+  mobileMenuButton.innerHTML = '<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>';
+  headerActions.prepend(mobileMenuButton);
+  setMobileMenu(false);
+
+  mobileMenuButton.addEventListener('click', () => {
+    setMobileMenu(!mainNav.classList.contains('is-open'));
+  });
+  mainNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMobileMenu(false));
+  });
+  document.addEventListener('click', (event) => {
+    if (!siteHeader.contains(event.target)) setMobileMenu(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mainNav.classList.contains('is-open')) {
+      setMobileMenu(false, { restoreFocus: true });
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1040) setMobileMenu(false);
+  });
+}
 
 function setActiveNav(targetId) {
   mainNavLinks.forEach((link) => {
@@ -513,6 +564,10 @@ if (quickContactButton && quickContactMenu) {
 
 function applyLanguage(lang) {
   currentLanguage = lang;
+  if (mobileMenuButton && mainNav) {
+    const isOpen = mainNav.classList.contains('is-open');
+    mobileMenuButton.setAttribute('aria-label', translations[lang][isOpen ? 'mobileMenuClose' : 'mobileMenuOpen']);
+  }
   document.querySelectorAll('[data-page-link]').forEach((link) => {
     const url = new URL(link.getAttribute('href'), window.location.href);
     if (localizedRouteLanguage) url.searchParams.delete('lang');
