@@ -210,6 +210,15 @@ Object.assign(translations.en, {phoneDisplay: "+374 94 575 768", phonePlaceholde
 Object.assign(translations.ru, {phoneInputHint: "Только армянский номер: 9 цифр, начиная с 0", invalidArmenianPhone: "Введите армянский номер: 9 цифр, начиная с 0."});
 Object.assign(translations.hy, {phoneInputHint: "Միայն հայկական համար՝ 0-ով սկսվող 9 թվանշան", invalidArmenianPhone: "Մուտքագրեք հայկական համար՝ 0-ով սկսվող 9 թվանշան։"});
 Object.assign(translations.en, {phoneInputHint: "Armenian numbers only: 9 digits starting with 0", invalidArmenianPhone: "Enter an Armenian number: 9 digits starting with 0."});
+Object.assign(translations.ru, {navAccount: "Мои заявки"});
+Object.assign(translations.hy, {navAccount: "Իմ հայտերը"});
+Object.assign(translations.en, {navAccount: "My applications"});
+Object.assign(translations.ru, {mobileMenuOpen: "Открыть меню", mobileMenuClose: "Закрыть меню"});
+Object.assign(translations.hy, {mobileMenuOpen: "Բացել ընտրացանկը", mobileMenuClose: "Փակել ընտրացանկը"});
+Object.assign(translations.en, {mobileMenuOpen: "Open menu", mobileMenuClose: "Close menu"});
+Object.assign(translations.ru, {accountShortcut: "Посмотреть мои заявки →"});
+Object.assign(translations.hy, {accountShortcut: "Դիտել իմ հայտերը →"});
+Object.assign(translations.en, {accountShortcut: "View my applications →"});
 
 Object.assign(translations.ru, {
   blogPageTitle: "Блог — Kostanyan Learning Center",
@@ -386,12 +395,60 @@ const quickContact = document.querySelector('.quick-contact');
 const quickContactButton = document.querySelector('.quick-contact-button');
 const quickContactMenu = document.querySelector('#quick-contact-menu');
 const quickContactClose = document.querySelector('.quick-contact-close');
+const siteHeader = document.querySelector('.site-header');
+const mainNav = siteHeader?.querySelector('.main-nav');
+const headerActions = siteHeader?.querySelector('.header-actions');
 const mainNavLinks = document.querySelectorAll('.main-nav a[href^="#"]');
 const lessonTypeInputs = document.querySelectorAll('input[name="lessonType"]');
 const modeFieldset = document.querySelector('#mode-fieldset');
 const modeInputs = document.querySelectorAll('input[name="mode"]');
 let activeNavLock = '';
 let activeNavUnlockTimer;
+
+const mobileMenuButton = mainNav && headerActions
+  ? document.createElement('button')
+  : null;
+
+function setMobileMenu(open, { restoreFocus = false } = {}) {
+  if (!mobileMenuButton || !mainNav) return;
+  mainNav.classList.toggle('is-open', open);
+  mobileMenuButton.classList.toggle('is-open', open);
+  mobileMenuButton.setAttribute('aria-expanded', String(open));
+  mobileMenuButton.setAttribute(
+    'aria-label',
+    translations[currentLanguage][open ? 'mobileMenuClose' : 'mobileMenuOpen'],
+  );
+  if (restoreFocus) mobileMenuButton.focus();
+}
+
+if (mobileMenuButton && mainNav && headerActions) {
+  if (!mainNav.id) mainNav.id = 'main-navigation';
+  mobileMenuButton.type = 'button';
+  mobileMenuButton.className = 'mobile-menu-toggle';
+  mobileMenuButton.setAttribute('aria-controls', mainNav.id);
+  mobileMenuButton.setAttribute('aria-expanded', 'false');
+  mobileMenuButton.innerHTML = '<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>';
+  headerActions.prepend(mobileMenuButton);
+  setMobileMenu(false);
+
+  mobileMenuButton.addEventListener('click', () => {
+    setMobileMenu(!mainNav.classList.contains('is-open'));
+  });
+  mainNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMobileMenu(false));
+  });
+  document.addEventListener('click', (event) => {
+    if (!siteHeader.contains(event.target)) setMobileMenu(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mainNav.classList.contains('is-open')) {
+      setMobileMenu(false, { restoreFocus: true });
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1040) setMobileMenu(false);
+  });
+}
 
 function setActiveNav(targetId) {
   mainNavLinks.forEach((link) => {
@@ -486,6 +543,15 @@ function closeQuickContact() {
 
 if (quickContactButton && quickContactMenu) {
   quickContactButton.addEventListener('click', () => {
+    if (window.matchMedia('(max-width: 600px)').matches && form) {
+      closeQuickContact();
+      window.history.replaceState(null, '', '#trial-form');
+      form.scrollIntoView({
+        behavior: 'instant',
+        block: 'start',
+      });
+      return;
+    }
     const willOpen = quickContactMenu.hidden;
     quickContactMenu.hidden = !willOpen;
     quickContactButton.setAttribute('aria-expanded', String(willOpen));
@@ -511,11 +577,18 @@ Object.assign(translations.en, {readingTag: "Reading", readingCardTitle: "Your c
 
 function applyLanguage(lang) {
   currentLanguage = lang;
+  if (mobileMenuButton && mainNav) {
+    const isOpen = mainNav.classList.contains('is-open');
+    mobileMenuButton.setAttribute('aria-label', translations[lang][isOpen ? 'mobileMenuClose' : 'mobileMenuOpen']);
+  }
   document.querySelectorAll('[data-page-link]').forEach((link) => {
     const url = new URL(link.getAttribute('href'), window.location.href);
     if (localizedRouteLanguage) url.searchParams.delete('lang');
     else url.searchParams.set('lang', lang);
     link.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
+  });
+  document.querySelectorAll('[data-account-link]').forEach((link) => {
+    link.setAttribute('href', `/account.html?lang=${lang}`);
   });
   const pageType = document.body.dataset.page;
   if (pageType === 'gallery') document.title = translations[lang].galleryTitle + ' — Kostanyan Learning Center';

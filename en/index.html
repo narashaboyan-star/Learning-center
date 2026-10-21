@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kostanyan Learning Center — learning support and educational activities for students in grades 1–6.">
   <title>Kostanyan Learning Center — Learning support for grades 1–6</title>
-  <link rel="stylesheet" href="../styles.css?v=20260928-1">
+  <link rel="stylesheet" href="../styles.css?v=font-preview-3">
   <link rel="alternate" hreflang="ru" href="../ru/index.html">
   <link rel="alternate" hreflang="en" href="../en/index.html">
 </head>
@@ -22,6 +22,7 @@
         <a href="#teacher" data-i18n="navTeacher">Преподаватель</a>
         <a href="#reviews" data-i18n="navReviews">Отзывы</a>
         <a href="blog.html" data-page-link data-i18n="navBlog">Блог</a>
+        <a href="/account.html?lang=en" data-account-link data-i18n="navAccount">My applications</a>
       </nav>
       <div class="header-actions">
         <div class="language-switch" aria-label="Выбор языка" data-i18n-aria-label="languageLabel">
@@ -55,7 +56,8 @@
             <p id="format-detail-text"></p>
           </div>
           <a class="primary-cta" href="#trial" data-i18n="heroCta">Записаться бесплатно на 90 минут</a>
-        <a class="text-link gallery-link" href="gallery.html" data-page-link data-i18n="galleryLink">Посмотреть, как проходят занятия →</a>
+          <a class="text-link gallery-link" href="gallery.html" data-page-link data-i18n="galleryLink">Посмотреть, как проходят занятия →</a>
+          <a class="text-link gallery-link account-shortcut" href="/account.html?lang=en" data-account-link data-i18n="accountShortcut">View my applications →</a>
           <p class="hero-note" data-i18n="heroNote">После знакомства Анушик Костанян подберёт подходящий формат и план работы для ребёнка.</p>
           <p class="hero-handwritten" data-i18n="heroHandwritten">В каждом ребёнке — большие возможности!</p>
         </div>
@@ -107,7 +109,7 @@
 
     <section class="section section-dark" id="teacher" aria-labelledby="teacher-title">
       <div class="container teacher-layout">
-        <div class="teacher-photo placeholder-media" role="img" aria-label="Место для фотографии Анушик Костанян" data-i18n-aria-label="teacherPhotoLabel"><span data-i18n="teacherPhoto">Фото Анушик Костанян</span><small data-i18n="teacherPhotoNote">Добавьте реальную фотографию</small></div>
+        <div class="teacher-photo"><img src="../assets/anushik-kostanyan.jpg" alt="Anushik Kostanyan" data-i18n-alt="teacherName" loading="lazy" decoding="async"></div>
         <div class="teacher-copy">
           <p class="eyebrow eyebrow-light" data-i18n="teacherEyebrow">Преподаватель</p>
           <h2 id="teacher-title" data-i18n="teacherName">Анушик Костанян</h2>
@@ -204,5 +206,7 @@
     </div>
   </footer>
   <script src="../script.js?v=20260928-1"></script>
+  <script src="../services.js" defer></script>
+  <script src="../applications.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Услуги — Kostanyan Learning Center</title>
+  <link rel="stylesheet" href="/admin/shared.css">
+  <style>
+    .service-list { display: grid; gap: 20px; }
+    .service-editor { border: 1px solid #dfe6ef; border-radius: 14px; padding: 20px; }
+    .service-editor h2 { margin-top: 0; }
+    .translations { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    textarea { width: 100%; min-height: 100px; resize: vertical; border: 1px solid #b8c5d6; border-radius: 10px; padding: 12px; font: inherit; }
+    .service-actions { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+    .service-message { min-height: 1.5em; margin: 0; }
+  </style>
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="admin-card">
+      <h1>Услуги и форматы</h1>
+      <p class="muted">Список постоянный. Можно менять только название и описание на русском, армянском и английском языках.</p>
+      <p><a class="admin-link secondary" href="/admin/">← В админку</a></p>
+      <p id="page-message" class="message" role="status" aria-live="polite"></p>
+      <div id="service-list" class="service-list" aria-busy="true"></div>
+    </section>
+  </main>
+  <script src="/admin/services.js" defer></script>
+</body>
+</html>
